@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./pages/index.css" />
+    <title>Around S.C.</title>
+  </head>
+  <body class="page">
+    <header class="header">
+      <img
+        class="header__logo"
+        src="./images/logo.svg"
+        alt="Around S.C. text"
+      />
+    </header>
+    <main class="content">
+      <section class="profile">
+        <img
+          class="profile__image"
+          src="./images/profile.png"
+          alt="profile portrait image"
+        />
+        <div class="profile__container">
+          <div class="profile__info">
+            <h1 class="profile__name">Phil Harris</h1>
+            <button
+              class="profile__edit-button"
+              aria-label="Edit"
+              type="button"
+            ></button>
+
+            <p class="profile__title">Keyboard Explorer</p>
+          </div>
+        </div>
+        <button
+          class="profile__add-button"
+          aria-label="Add"
+          type="button"
+        ></button>
+      </section>
+      <section class="photo-grid">
+        <div class="photo-grid__card">
+          <img
+            class="photo-grid__image"
+            src="./images/bradley-allweil-c2xLHa-3L8c-unsplash_282x282_sassafrasmountain.jpg"
+            alt="tree covered mountain with mist"
+          />
+          <div class="photo-grid__info">
+            <h2 class="photo-grid__title">Sassafras Mountain</h2>
+            <button
+              class="photo-grid__button"
+              aria-label="Like"
+              type="button"
+            ></button>
+          </div>
+        </div>
+        <div class="photo-grid__card">
+          <img
+            class="photo-grid__image"
+            src="./images/andrew-shelley-Hzbq4de24kQ-unsplash_282x282_angeltree.jpg"
+            alt="live oak tree"
+          />
+          <div class="photo-grid__info">
+            <h2 class="photo-grid__title">Angel Tree</h2>
+            <button
+              class="photo-grid__button"
+              aria-label="Like"
+              type="button"
+            ></button>
+          </div>
+        </div>
+        <div class="photo-grid__card">
+          <img
+            class="photo-grid__image"
+            src="./images/colin-lloyd-kL8x31IrKYo-unsplash_282x282_myrtlebeach.jpg"
+            alt="sandy beach"
+          />
+          <div class="photo-grid__info">
+            <h2 class="photo-grid__title">Myrtle Beach</h2>
+            <button
+              class="photo-grid__button"
+              aria-label="Like"
+              type="button"
+            ></button>
+          </div>
+        </div>
+        <div class="photo-grid__card">
+          <img
+            class="photo-grid__image"
+            src="./images/drew-beamer-7i3eQOrr-1Q-unsplash_282x282_edistobeach.jpg"
+            alt="sunset behind palmetto tree"
+          />
+          <div class="photo-grid__info">
+            <h2 class="photo-grid__title">Edisto Beach</h2>
+            <button
+              class="photo-grid__button"
+              aria-label="Like"
+              type="button"
+            ></button>
+          </div>
+        </div>
+        <div class="photo-grid__card">
+          <img
+            class="photo-grid__image"
+            src="./images/sara-parlier-Ejj7oiPeY18-unsplash_282x282_tablerockmountain.jpg"
+            alt="long shot of mountain range"
+          />
+          <div class="photo-grid__info">
+            <h2 class="photo-grid__title">Table Rock Mountain</h2>
+            <button
+              class="photo-grid__button"
+              aria-label="Like"
+              type="button"
+            ></button>
+          </div>
+        </div>
+        <div class="photo-grid__card">
+          <img
+            class="photo-grid__image"
+            src="./images/yohan-marion-BBxsQ2KnwHQ-unsplash_282x282_congareenationalpark.jpg"
+            alt="water with swamp vegetation"
+          />
+          <div class="photo-grid__info">
+            <h2 class="photo-grid__title">Congaree National Park</h2>
+            <button
+              class="photo-grid__button"
+              aria-label="Like"
+              type="button"
+            ></button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">© 2022 Around South Carolina</p>
+    </footer>
+    <div class="popup">
+      <div class="popup__container">
+        <button type="button" class="popup__close-button"></button>
+        <h3 class="popup__title">Edit profile</h3>
+        <form class="popup__form" name="new">
+          <input
+            class="popup__input popup__input_type_name"
+            type="text"
+            name="name"
+            placeholder="Name"
+          />
+          <input
+            class="popup__input popup__input_type_description"
+            type="text"
+            name="description"
+            placeholder="Description"
+          />
+          <button class="button popup__save-button" type="submit">Save</button>
+        </form>
+      </div>
+    </div>
+    <script src="./scripts/index.js" type="text/JavaScript"></script>
+  </body>
+</html>
