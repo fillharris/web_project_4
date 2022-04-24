@@ -1,12 +1,14 @@
-.photo-grid {
+.cards {
+  list-style: none;
   display: grid;
   max-width: 880px;
   margin: 0 auto;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   grid-gap: 20px;
+  padding: 0;
 }
 
-.photo-grid__card {
+.card {
   box-sizing: border-box;
   display: grid;
   max-height: 361px;
@@ -16,7 +18,7 @@
   border-radius: 10px;
 }
 
-.photo-grid__image {
+.card__image {
   object-fit: cover;
   width: 100%;
   height: 282px;
@@ -25,7 +27,7 @@
   border-top-right-radius: 10px;
 }
 
-.photo-grid__info {
+.card__info {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -33,7 +35,7 @@
   margin: 24px 15px 25px 21px;
 }
 
-.photo-grid__title {
+.card__title {
   font-family: "Inter", Arial, sans-serif;
   font-size: 24px;
   font-weight: 900;
@@ -47,7 +49,7 @@
   padding: 0px;
 }
 
-.photo-grid__button {
+.card__button {
   width: 21px;
   height: 19px;
   margin: 0;
@@ -60,16 +62,16 @@
   cursor: pointer;
 }
 
-.photo-grid__button:hover {
+.card__button:hover {
   opacity: 0.5;
 }
 
-.photo-grid__button:active {
+.ccard__button:active {
   background: #000;
 }
 
 @media screen and (max-width: 768px) {
-  .photo-grid {
+  .cards {
     grid-template-columns: repeat(2, 1fr);
     margin-left: 100px;
     margin-right: 100px;
@@ -78,7 +80,7 @@
 }
 
 @media screen and (max-width: 320px) {
-  .photo-grid {
+  .cards {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(6, 1fr);
     gap: 20px;
