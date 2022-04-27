@@ -16,8 +16,8 @@
   font-style:  normal;
   font-weight: 500;
   font-display: swap;
-  src: url("Inter-SemiBold.woff2?v=3.19") format("woff2"),
-       url("Inter-SemiBold.woff?v=3.19") format("woff");
+  src: url("Inter-Medium.woff2?v=3.19") format("woff2"),
+       url("Inter-Medium.woff?v=3.19") format("woff");
 }
 
 
