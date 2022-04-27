@@ -14,13 +14,13 @@
   margin: 0 auto;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 880px) {
   .footer__copyright {
     margin: 0 auto;
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 600px) {
   .footer__copyright {
     font-size: 14px;
     line-height: 17px;
