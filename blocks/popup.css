@@ -98,6 +98,22 @@
   right: 0px;
   width: 20px;
   height: 20px;
+  }
 
+  .popup__container {
+    padding: 25px 22px;
+  }
+
+  .popup__title {
+    font-size: 18px;
+  }
+
+  .popup__input {
+    padding-bottom: 9px;
+  }
+
+  .popup__save-button {
+    margin: 0;
+    font-size: 14px;
   }
 }
