@@ -8,8 +8,9 @@
 .profile__info {
   margin-top: 22px;
   display: grid;
-  grid-template-areas: "title button"
-  "description description";
+  grid-template-areas:
+    "title button"
+    "description description";
   grid-template-columns: minmax(auto, 373px) auto;
   grid-gap: 9px 17px;
 }
@@ -27,7 +28,7 @@
 }
 
 .profile__title {
- margin: 0;
+  margin: 0;
   font-family: "Inter", Arial, sans-serif;
   font-size: 18px;
   font-weight: 400;
@@ -117,6 +118,9 @@
     line-height: 17px;
     margin: auto;
     grid-column: span 2;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
   }
 
   .profile__name {
@@ -131,6 +135,5 @@
   .profile__edit-button {
     height: 18px;
     width: 18px;
+  }
 }
-}
-
