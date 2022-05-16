@@ -6,15 +6,17 @@
   grid-template-rows: 282px 1fr;
   background-color: #ffffff;
   border-radius: 10px;
+  position: relative;
 }
 
 .card__image {
-  object-fit: cover;
+  background-size: cover;
   width: 100%;
   height: 282px;
   background-color: #000000;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  cursor: pointer;
 }
 
 .card__info {
@@ -39,7 +41,7 @@
   padding: 0px;
 }
 
-.card__button {
+.card__like-button {
   width: 21px;
   height: 19px;
   margin: 0;
@@ -52,12 +54,29 @@
   cursor: pointer;
 }
 
-.card__button:hover {
+
+.card__delete-button {
+  width: 21px;
+  height: 19px;
+  margin: 0;
+  padding: 0;
+  border: hidden;
+  background: url(../images/delete.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: opacity 0.1s ease-out;
+  cursor: pointer;
+  position: absolute;
+  top: 18px;
+  right: 15px;
+}
+
+.card__like-button:hover {
   opacity: 0.5;
 }
 
-.card__button:active {
-  background: #000;
+.card__active-button {
+  background: url(../images/filled-heart.svg);
 }
 
 
