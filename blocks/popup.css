@@ -37,7 +37,7 @@
   padding: 0px 36px;
   box-sizing: border-box;
   max-width: 430px;
-  width: auto;
+  width: 100%;
   position: relative;
 }
 
@@ -139,6 +139,7 @@
   max-width: 75vw;
   max-height: 75vh;
   padding: 0%;
+  width:auto;
 }
 
 

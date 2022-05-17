@@ -116,7 +116,7 @@ const createCardElement = (data) => {
   const imagePreview = cardElement.querySelector(".card__image");
   const imagePreviewTitle = cardElement.querySelector(".card__title");
 
-  imagePreview.src = data.link;
+  //imagePreview.src = data.link;
   imagePreviewTitle.textContent = data.name;
 
   cardElement.querySelector(
@@ -134,6 +134,7 @@ const createCardElement = (data) => {
 
   imagePreview.addEventListener("click", function () {
     previewCardImage.src = data.link;
+    previewCardImage.alt = `'Photo of ${data.name}'`;
     previewCardName.textContent = data.name;
     toggleModalVisibility(previewImagePopup);
   });
