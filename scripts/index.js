@@ -61,9 +61,15 @@ const descriptionInputField = editForm.querySelector(
 const nameInputField = createForm.querySelector(".popup__input_type_name");
 const linkInputField = createForm.querySelector(".popup__input_type_link");
 
-// function toggleModalVisibility(popupWindow) {
-//   popupWindow.classList.toggle("popup__is_opened");
-// }
+function openPopup(popup) {
+  popup.classList.add("popup_open");
+}
+
+function closePopup(popup) {
+  popup.classList.remove(
+    "popup_open"
+  );
+}
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
@@ -174,16 +180,16 @@ popups.forEach((popup) => {
       closePopup(popup);
     }
   });
-}); //end forEach
+}); 
 
-///////////////////////////////////////////////////////////////////Universal Open/Close Modal Functions
+
 function openPopup(popup) {
-  /* The visible class overrides the previous class because its farther down the page. see modal.css.*/
-  popup.classList.add("popup_open"); /*activate a class that makes it visible*/
+  
+  popup.classList.add("popup_open");
 }
 
 function closePopup(popup) {
   popup.classList.remove(
     "popup_open"
-  ); /*deactivate a class that makes it visible*/
+  );
 }
