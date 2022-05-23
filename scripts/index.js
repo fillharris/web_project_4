@@ -35,7 +35,9 @@ const photoGridWrap = document.querySelector(".photo-grid__cards");
 const editPopupWindow = document.querySelector(".edit-popup");
 const createPopupWindow = document.querySelector(".create-popup");
 const editForm = document.querySelector(".popup__edit-container");
-const createForm = document.querySelector(".popup__create-container .popup__form");
+const createForm = document.querySelector(
+  ".popup__create-container .popup__form"
+);
 
 // Buttons and other DOM elements
 
@@ -47,7 +49,7 @@ const profileTitle = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__title");
 const previewImagePopup = document.querySelector(".preview-popup");
 const previewCardImage = document.querySelector(".popup__preview-image");
-const previewCardName= document.querySelector(".popup__preview-name");
+const previewCardName = document.querySelector(".popup__preview-name");
 
 // Form Data
 
@@ -57,46 +59,45 @@ const descriptionInputField = editForm.querySelector(
 );
 
 const nameInputField = createForm.querySelector(".popup__input_type_name");
-const linkInputField = createForm.querySelector(
-  ".popup__input_type_link"
-);
+const linkInputField = createForm.querySelector(".popup__input_type_link");
 
-
-function toggleModalVisibility(popupWindow) {
-  popupWindow.classList.toggle("popup__is_opened");
-}
+// function toggleModalVisibility(popupWindow) {
+//   popupWindow.classList.toggle("popup__is_opened");
+// }
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
   profileTitle.textContent = titleInputField.value;
   profileDescription.textContent = descriptionInputField.value;
 
-  toggleModalVisibility(editPopupWindow);
+  closePopup(editPopupWindow);
 }
 
 function handleCreateFormSubmit(evt) {
   evt.preventDefault();
-  
-  renderCard({
-    name: nameInputField.value,
-    link: linkInputField.value,
-  }, photoGridWrap );
 
-  toggleModalVisibility(createPopupWindow);
+  renderCard(
+    {
+      name: nameInputField.value,
+      link: linkInputField.value,
+    },
+    photoGridWrap
+  );
+
+  closePopup(createPopupWindow);
   createForm.reset();
 }
 
 editForm.addEventListener("submit", handleEditFormSubmit);
 createForm.addEventListener("submit", handleCreateFormSubmit);
 editButton.addEventListener("click", () => {
-  
-    titleInputField.value = profileTitle.textContent;
-    descriptionInputField.value = profileDescription.textContent;
+  titleInputField.value = profileTitle.textContent;
+  descriptionInputField.value = profileDescription.textContent;
 
-  toggleModalVisibility(editPopupWindow);
+  openPopup(editPopupWindow);
 });
 addButton.addEventListener("click", () => {
-  toggleModalVisibility(createPopupWindow);
+  openPopup(createPopupWindow);
 });
 
 const closeButtons = document.querySelectorAll(".popup__close-button");
@@ -105,7 +106,7 @@ closeButtons.forEach((button) => {
   // find the closest popup
   const popup = button.closest(".popup");
   // set the listener
-  button.addEventListener("click", () => toggleModalVisibility(popup));
+  button.addEventListener("click", () => closePopup(popup));
 });
 
 const createCardElement = (data) => {
@@ -124,7 +125,9 @@ const createCardElement = (data) => {
   ).style.backgroundImage = `url('${data.link}')`;
   cardElement.querySelector(".card__title").textContent = data.name;
 
-  cardElement.querySelector(".card__like-button").addEventListener("click", function (evt) {
+  cardElement
+    .querySelector(".card__like-button")
+    .addEventListener("click", function (evt) {
       evt.target.classList.toggle("card__active-button");
     });
 
@@ -136,7 +139,7 @@ const createCardElement = (data) => {
     previewCardImage.src = data.link;
     previewCardImage.alt = `'Photo of ${data.name}'`;
     previewCardName.textContent = data.name;
-    toggleModalVisibility(previewImagePopup);
+    openPopup(previewImagePopup);
   });
 
   return cardElement;
@@ -151,3 +154,36 @@ const renderCard = (data, wrapper) => {
 initialCards.forEach((data) => {
   renderCard(data, photoGridWrap);
 });
+
+//Close popup by clicking outside
+
+const popups = Array.from(document.querySelectorAll(".popup"));
+popups.forEach((popup) => {
+  popup.addEventListener("mousedown", (evt) => {
+
+    if (
+      evt.target.classList.contains("popup") ||
+      evt.target.classList.contains("popup__close-button")
+    ) {
+      closePopup(popup);
+    }
+  });
+  
+  document.addEventListener("keydown", (evt) => {
+    if (evt.key === "Escape") {
+      closePopup(popup);
+    }
+  });
+}); //end forEach
+
+///////////////////////////////////////////////////////////////////Universal Open/Close Modal Functions
+function openPopup(popup) {
+  /* The visible class overrides the previous class because its farther down the page. see modal.css.*/
+  popup.classList.add("popup_open"); /*activate a class that makes it visible*/
+}
+
+function closePopup(popup) {
+  popup.classList.remove(
+    "popup_open"
+  ); /*deactivate a class that makes it visible*/
+}
