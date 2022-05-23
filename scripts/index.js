@@ -1,3 +1,4 @@
+
 const initialCards = [
   {
     name: "Sassafras Mountain",
@@ -182,14 +183,3 @@ popups.forEach((popup) => {
   });
 }); 
 
-
-function openPopup(popup) {
-  
-  popup.classList.add("popup_open");
-}
-
-function closePopup(popup) {
-  popup.classList.remove(
-    "popup_open"
-  );
-}

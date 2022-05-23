@@ -34,7 +34,9 @@ const showInputError = (formElement, inputElement, errorMessage, settings) => {
   const toggleButtonState = (inputList, buttonElement, settings) => {
     if (hasInvalidInput(inputList)) {
       buttonElement.classList.add(settings.inactiveButtonClass);
+      buttonElement.disabled = true;
     } else {
+      buttonElement.disabled = false;
       buttonElement.classList.remove(settings.inactiveButtonClass);
     }
   };
@@ -71,3 +73,4 @@ const showInputError = (formElement, inputElement, errorMessage, settings) => {
     inputErrorClass: "popup__error",
     errorClass: "popup__error_visible",
 });
+
