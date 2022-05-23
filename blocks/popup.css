@@ -94,7 +94,7 @@ position: relative;
 
 .popup__error {
   visibility: hidden;
-  font-family: "Inter", Arial, sans-serif; 
+  font-family: "Inter", Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -103,7 +103,7 @@ position: relative;
 
 .popup__error_visible {
   visibility: visible;
-  font-family: "Inter", Arial, sans-serif; 
+  font-family: "Inter", Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
