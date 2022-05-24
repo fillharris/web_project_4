@@ -61,7 +61,6 @@ const descriptionInputField = editForm.querySelector(
 
 const nameInputField = createForm.querySelector(".popup__input_type_name");
 const linkInputField = createForm.querySelector(".popup__input_type_link");
-debugger;
 
 function closeWithEsc(evt) {
   document.addEventListener("keydown", (evt) => {

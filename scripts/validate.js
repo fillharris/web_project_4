@@ -5,7 +5,7 @@ const settings = {
   inactiveButtonClass: "popup__save-button_disabled",
   inputErrorClass: "popup__error",
   errorClass: "popup__error_visible",
-}
+};
 
 const showInputError = (formElement, inputElement, errorMessage, settings) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
