@@ -63,11 +63,10 @@ const nameInputField = createForm.querySelector(".popup__input_type_name");
 const linkInputField = createForm.querySelector(".popup__input_type_link");
 
 function closeWithEsc(evt) {
-  document.addEventListener("keydown", (evt) => {
-    if (evt.key === "Escape") {
-      closePopup(popups);
-    }
-}); 
+  if (evt.key === "Escape") {
+    const popup = document.querySelector(".popup_open");
+    closePopup(popup);
+  }
 }
 
 function openPopup(popup) {
@@ -103,8 +102,8 @@ function handleCreateFormSubmit(evt) {
 
       closePopup(createPopupWindow);
       createForm.reset();
-      const saveButton = createForm.querySelector(".popup__save-button");
-      toggleButtonState(inactiveButtonClass, settings);
+      const saveButton = createForm.querySelector(settings.submitButtonSelector);
+      toggleButtonState(saveButton, settings);
     }
 
 editForm.addEventListener("submit", handleEditFormSubmit);
@@ -125,7 +124,6 @@ editForm.addEventListener("submit", handleEditFormSubmit);
     // find the closest popup
     const popup = button.closest(".popup");
     // set the listener
-    // button.addEventListener("click", () => closePopup(popup));
   });
 
   const createCardElement = (data) => {
@@ -187,11 +185,5 @@ editForm.addEventListener("submit", handleEditFormSubmit);
         closePopup(popup);
       }
     });
-
-    // document.addEventListener("keydown", (evt) => {
-    //   if (evt.key === "Escape") {
-    //     closePopup(popup);
-    //   }
-    // });
   });
 
