@@ -110,8 +110,8 @@ function handleCreateFormSubmit(evt) {
 
   closePopup(createPopupWindow);
   createForm.reset();
-  const saveButton = createForm.querySelector(settings.submitButtonSelector);
-  toggleButtonState(saveButton, settings);
+   const saveButton = createForm.querySelector(settings.submitButtonSelector);
+   toggleButtonState(saveButton, settings);
 }
 
 editForm.addEventListener("submit", handleEditFormSubmit);
