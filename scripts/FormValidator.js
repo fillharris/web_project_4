@@ -8,7 +8,7 @@ class FormValidator {
     this._errorClass = settings.errorClass;
 
     this._inputList = Array.from(
-      this._formElement.querySelector(this._inputSelector)
+      this._formElement.querySelectorAll(this._inputSelector)
     );
     this._buttonElement = this._formElement.querySelector(
       this._submitButtonSelector
@@ -76,7 +76,7 @@ class FormValidator {
   enableValidation() {
     this._formElement.addEventListener("submit", (evt) => {
       evt.preventDefault();
-      this._toggleButtonState(true);
+      this._toggleButtonState();
     });
 
     this._setEventListeners();
