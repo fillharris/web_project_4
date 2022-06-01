@@ -158,7 +158,7 @@ initialCards.forEach((data) => {
 });
 
 // Validation
- const addFormElement = createPopupWindow.querySelector(".poup__form");
+ const addFormElement = createPopupWindow.querySelector(".popup__form");
  const editFormElement = editPopupWindow.querySelector(".popup__form");
 
  const addFormValidator = new FormValidator(settings, addFormElement);
