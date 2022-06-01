@@ -1,5 +1,14 @@
-import Card from "./card.js";
+import Card from "./Card.js";
+import FormValidator from "./FormValidator.js";
 
+const settings = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__save-button_disabled",
+  inputErrorClass: "popup__error",
+  errorClass: "popup__error_visible",
+}
 
 const initialCards = [
   {
@@ -124,16 +133,6 @@ closeButtons.forEach((button) => {
  
 });
 
-const renderCard = (data, wrapper) => {
-  const card = new Card(data, "#card-template").generateCard();
-  wrapper.prepend(card);
-};
-
-// Render
-initialCards.forEach((data) => {
-  renderCard(data, photoGridWrap);
-});
-
 //Close popup by clicking outside
 const popups = Array.from(document.querySelectorAll(".popup"));
 popups.forEach((popup) => {
@@ -147,4 +146,32 @@ popups.forEach((popup) => {
     }
   });
 });
+
+const renderCard = (data, wrapper) => {
+  const card = new Card(data, "#card-template").generateCard();
+  wrapper.prepend(card);
+};
+
+// Render
+initialCards.forEach((data) => {
+  renderCard(data, photoGridWrap);
+});
+
+// Validation
+const addFormElement = createPopupWindow.querySelector(".poup__form");
+const editFormElement = editPopupWindow.querySelector(".popup__form");
+
+const formValidationConfig = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__save-button_disabled",
+  inputErrorClass: "popup__error",
+  errorClass: "popup__error_visible",
+};
+
+const addFormValidator = new FormValidator(formValidationConfig, addFormElement);
+addFormValidator.enableValidation();
+const editFormValidator = new FormValidator(formValidationConfig, editFormElement);
+editFormValidator.enableValidation();
 

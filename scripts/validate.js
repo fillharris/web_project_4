@@ -58,7 +58,9 @@ const showInputError = (formElement, inputElement, errorMessage, settings) => {
     const buttonElement = formElement.querySelector(
       settings.submitButtonSelector
     );
+
     toggleButtonState(buttonElement, settings, inputList, );
+    
     inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", function () {
         checkInputValidity(formElement, inputElement, settings); 
