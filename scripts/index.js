@@ -161,17 +161,9 @@ initialCards.forEach((data) => {
 const addFormElement = createPopupWindow.querySelector(".poup__form");
 const editFormElement = editPopupWindow.querySelector(".popup__form");
 
-const formValidationConfig = {
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__save-button_disabled",
-  inputErrorClass: "popup__error",
-  errorClass: "popup__error_visible",
-};
-
-const addFormValidator = new FormValidator(formValidationConfig, addFormElement);
+const addFormValidator = new FormValidator(settings, addFormElement);
 addFormValidator.enableValidation();
-const editFormValidator = new FormValidator(formValidationConfig, editFormElement);
+
+const editFormValidator = new FormValidator(settings, editFormElement);
 editFormValidator.enableValidation();
 
