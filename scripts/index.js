@@ -158,12 +158,12 @@ initialCards.forEach((data) => {
 });
 
 // Validation
-const addFormElement = createPopupWindow.querySelector(".poup__form");
-const editFormElement = editPopupWindow.querySelector(".popup__form");
+ const addFormElement = createPopupWindow.querySelector(".poup__form");
+ const editFormElement = editPopupWindow.querySelector(".popup__form");
 
-const addFormValidator = new FormValidator(settings, addFormElement);
-addFormValidator.enableValidation();
+ const addFormValidator = new FormValidator(settings, addFormElement);
+ addFormValidator.enableValidation();
 
-const editFormValidator = new FormValidator(settings, editFormElement);
-editFormValidator.enableValidation();
+ const editFormValidator = new FormValidator(settings, editFormElement);
+ editFormValidator.enableValidation();
 
