@@ -1,14 +1,26 @@
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
-
-const settings = {
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__save-button_disabled",
-  inputErrorClass: "popup__error",
-  errorClass: "popup__error_visible",
-}
+import {
+  settings,
+  photoGridWrap,
+  editPopupWindow,
+  createPopupWindow,
+  editForm,
+  createForm,
+  editButton,
+  addButton,
+  editCloseButton,
+  createCloseButton,
+  profileTitle,
+  profileDescription,
+  previewImagePopup,
+  previewCardImage,
+  previewCardName,
+  titleInputField,
+  descriptionInputField,
+  nameInputField,
+  linkInputField,
+} from "./utils.js";
 
 const initialCards = [
   {
@@ -37,57 +49,22 @@ const initialCards = [
   },
 ];
 
-// Wrappers
-
-const photoGridWrap = document.querySelector(".photo-grid__cards");
-const editPopupWindow = document.querySelector(".edit-popup");
-const createPopupWindow = document.querySelector(".create-popup");
-const editForm = document.querySelector(".popup__edit-container");
-const createForm = document.querySelector(
-  ".popup__create-container .popup__form"
-);
-
-// Buttons and other DOM elements
-
-const editButton = document.querySelector(".profile__edit-button");
-const addButton = document.querySelector(".profile__add-button");
-const editCloseButton = document.querySelector(".popup__close-edit");
-const createCloseButton = document.querySelector(".popup__close-create");
-const profileTitle = document.querySelector(".profile__name");
-const profileDescription = document.querySelector(".profile__title");
-const previewImagePopup = document.querySelector(".preview-popup");
-const previewCardImage = document.querySelector(".popup__preview-image");
-const previewCardName = document.querySelector(".popup__preview-name");
-
-// Form Data
-
-const titleInputField = editForm.querySelector(".popup__input_type_title");
-const descriptionInputField = editForm.querySelector(
-  ".popup__input_type_description"
-);
-
-const nameInputField = createForm.querySelector(".popup__input_type_name");
-const linkInputField = createForm.querySelector(".popup__input_type_link");
-
-
 const closeWithEsc = (evt) => {
   if (evt.key === "Escape") {
     const popup = document.querySelector(".popup_open");
     closePopup(popup);
   }
-}
+};
 
 const openPopup = (popup) => {
   popup.classList.add("popup_open");
   document.addEventListener("keydown", closeWithEsc);
-}
+};
 
 const closePopup = (popup) => {
-  popup.classList.remove(
-    "popup_open"
-  );
+  popup.classList.remove("popup_open");
   document.removeEventListener("keydown", closeWithEsc);
-}
+};
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
@@ -110,8 +87,8 @@ function handleCreateFormSubmit(evt) {
 
   closePopup(createPopupWindow);
   createForm.reset();
-   const saveButton = createForm.querySelector(settings.submitButtonSelector);
-   toggleButtonState(saveButton, settings);
+  const saveButton = createForm.querySelector(settings.submitButtonSelector);
+  toggleButtonState(saveButton, settings);
 }
 
 editForm.addEventListener("submit", handleEditFormSubmit);
@@ -130,14 +107,12 @@ const closeButtons = document.querySelectorAll(".popup__close-button");
 
 closeButtons.forEach((button) => {
   const popup = button.closest(".popup");
- 
 });
 
 //Close popup by clicking outside
 const popups = Array.from(document.querySelectorAll(".popup"));
 popups.forEach((popup) => {
   popup.addEventListener("mousedown", (evt) => {
-
     if (
       evt.target.classList.contains("popup") ||
       evt.target.classList.contains("popup__close-button")
@@ -158,12 +133,11 @@ initialCards.forEach((data) => {
 });
 
 // Validation
- const addFormElement = createPopupWindow.querySelector(".popup__form");
- const editFormElement = editPopupWindow.querySelector(".popup__form");
+const addFormElement = createPopupWindow.querySelector(".popup__form");
+const editFormElement = editPopupWindow.querySelector(".popup__form");
 
- const addFormValidator = new FormValidator(settings, addFormElement);
- addFormValidator.enableValidation();
+const addFormValidator = new FormValidator(settings, addFormElement);
+addFormValidator.enableValidation();
 
- const editFormValidator = new FormValidator(settings, editFormElement);
- editFormValidator.enableValidation();
-
+const editFormValidator = new FormValidator(settings, editFormElement);
+editFormValidator.enableValidation();

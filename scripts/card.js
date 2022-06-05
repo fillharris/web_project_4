@@ -1,6 +1,8 @@
-const previewImagePopup = document.querySelector(".preview-popup");
-const previewCardImage = document.querySelector(".popup__preview-image");
-const previewCardName = document.querySelector(".popup__preview-name");
+import {
+    previewImagePopup,
+    previewCardImage,
+    previewCardName
+} from "./utils.js";
 
 const closeWithEsc = (evt) => {
     if (evt.key === "Escape") {
