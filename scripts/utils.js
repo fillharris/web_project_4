@@ -38,3 +38,20 @@ export const descriptionInputField = editForm.querySelector(
 
 export const nameInputField = createForm.querySelector(".popup__input_type_name");
 export const linkInputField = createForm.querySelector(".popup__input_type_link");
+
+export const closeWithEsc = (evt) => {
+  if (evt.key === "Escape") {
+    const popup = document.querySelector(".popup_open");
+    closePopup(popup);
+  }
+};
+
+export const openPopup = (popup) => {
+  popup.classList.add("popup_open");
+  document.addEventListener("keydown", closeWithEsc);
+};
+
+export const closePopup = (popup) => {
+  popup.classList.remove("popup_open");
+  document.removeEventListener("keydown", closeWithEsc);
+};

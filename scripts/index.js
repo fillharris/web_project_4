@@ -20,6 +20,9 @@ import {
   descriptionInputField,
   nameInputField,
   linkInputField,
+  closeWithEsc,
+  closePopup,
+  openPopup
 } from "./utils.js";
 
 const initialCards = [
@@ -48,23 +51,6 @@ const initialCards = [
     link: "https://images.unsplash.com/photo-1615653051968-69c2b0e43347?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
   },
 ];
-
-const closeWithEsc = (evt) => {
-  if (evt.key === "Escape") {
-    const popup = document.querySelector(".popup_open");
-    closePopup(popup);
-  }
-};
-
-const openPopup = (popup) => {
-  popup.classList.add("popup_open");
-  document.addEventListener("keydown", closeWithEsc);
-};
-
-const closePopup = (popup) => {
-  popup.classList.remove("popup_open");
-  document.removeEventListener("keydown", closeWithEsc);
-};
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();

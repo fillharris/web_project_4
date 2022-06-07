@@ -1,27 +1,11 @@
 import {
     previewImagePopup,
     previewCardImage,
-    previewCardName
+    previewCardName,
+    closeWithEsc,
+    closePopup,
+    openPopup
 } from "./utils.js";
-
-const closeWithEsc = (evt) => {
-    if (evt.key === "Escape") {
-        const popup = document.querySelector(".popup_open");
-        closePopup(popup);
-    }
-}
-
-const openPopup = (popup) => {
-    popup.classList.add("popup_open");
-    document.addEventListener("keydown", closeWithEsc);
-}
-
-const closePopup = (popup) => {
-    popup.classList.remove(
-        "popup_open"
-    );
-    document.removeEventListener("keydown", closeWithEsc);
-}
 
 class Card {
 
