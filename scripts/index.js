@@ -91,10 +91,6 @@ addButton.addEventListener("click", () => {
 
 const closeButtons = document.querySelectorAll(".popup__close-button");
 
-closeButtons.forEach((button) => {
-  const popup = button.closest(".popup");
-});
-
 //Close popup by clicking outside
 const popups = Array.from(document.querySelectorAll(".popup"));
 popups.forEach((popup) => {
