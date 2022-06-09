@@ -1,11 +1,12 @@
 import {
-    previewImagePopup,
-    previewCardImage,
-    previewCardName,
     closeWithEsc,
     closePopup,
     openPopup
 } from "./utils.js";
+
+ const previewImagePopup = document.querySelector(".preview-popup");
+ const previewCardImage = document.querySelector(".popup__preview-image");
+ const previewCardName = document.querySelector(".popup__preview-name");
 
 class Card {
 

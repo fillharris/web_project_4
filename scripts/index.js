@@ -1,25 +1,6 @@
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
 import {
-  settings,
-  photoGridWrap,
-  editPopupWindow,
-  createPopupWindow,
-  editForm,
-  createForm,
-  editButton,
-  addButton,
-  editCloseButton,
-  createCloseButton,
-  profileTitle,
-  profileDescription,
-  previewImagePopup,
-  previewCardImage,
-  previewCardName,
-  titleInputField,
-  descriptionInputField,
-  nameInputField,
-  linkInputField,
   closeWithEsc,
   closePopup,
   openPopup
@@ -51,6 +32,45 @@ const initialCards = [
     link: "https://images.unsplash.com/photo-1615653051968-69c2b0e43347?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
   },
 ];
+ const settings = {
+  formSelector: ".popup__form",
+  inputSelector: ".popup__input",
+  submitButtonSelector: ".popup__button",
+  inactiveButtonClass: "popup__save-button_disabled",
+  inputErrorClass: "popup__error",
+  errorClass: "popup__error_visible",
+}
+
+// Wrappers
+
+ const editPopupWindow = document.querySelector(".edit-popup");
+ const createPopupWindow = document.querySelector(".create-popup");
+ const editForm = document.querySelector(".popup__edit-container");
+ const photoGridWrap = document.querySelector(".photo-grid__cards");
+ const createForm = document.querySelector(
+".popup__create-container .popup__form"
+);
+
+// Buttons and other DOM elements
+
+ const editButton = document.querySelector(".profile__edit-button");
+ const addButton = document.querySelector(".profile__add-button");
+ const editCloseButton = document.querySelector(".popup__close-edit");
+ const createCloseButton = document.querySelector(".popup__close-create");
+ const profileTitle = document.querySelector(".profile__name");
+ const profileDescription = document.querySelector(".profile__title");
+ 
+
+// Form Data
+
+ const titleInputField = editForm.querySelector(".popup__input_type_title");
+ const descriptionInputField = editForm.querySelector(
+".popup__input_type_description"
+);
+
+ const nameInputField = createForm.querySelector(".popup__input_type_name");
+ const linkInputField = createForm.querySelector(".popup__input_type_link");
+
 
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
@@ -74,7 +94,7 @@ function handleCreateFormSubmit(evt) {
   closePopup(createPopupWindow);
   createForm.reset();
   const saveButton = createForm.querySelector(settings.submitButtonSelector);
-  toggleButtonState(saveButton, settings);
+  addFormValidator.toggleButtonState(saveButton, settings);
 }
 
 editForm.addEventListener("submit", handleEditFormSubmit);
