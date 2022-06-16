@@ -2,7 +2,7 @@ import {
     closeWithEsc,
     closePopup,
     openPopup
-} from "./utils.js";
+} from "../utils/utils.js";
 
  const previewImagePopup = document.querySelector(".preview-popup");
  const previewCardImage = document.querySelector(".popup__preview-image");
