@@ -17,11 +17,13 @@ class Popup {
     }
 
     open() {
-
+        popup.classList.add("popup_open");
+        document.addEventListener("keydown", this._handleEsc);
     }
 
     close() {
-
+        popup.classList.remove("popup_open");
+        document.removeEventListener("keydown", this._handleEsc);
     }
 }
 
