@@ -14,8 +14,7 @@ class Popup {
   }
 
   _handleClickOutsideToClose() {
-    this._popups.forEach((this) => {
-      this._popup.addEventListener("mousedown", (evt) => {
+       this._popup.addEventListener("mousedown", (evt) => {
         if (
           evt.target.classList.contains("popup") ||
           evt.target.classList.contains("popup__close-button")
@@ -23,7 +22,7 @@ class Popup {
           close(this._popup);
         }
       });
-    });
+  
   }
 
   setEventListeners() {

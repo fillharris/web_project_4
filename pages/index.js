@@ -12,12 +12,13 @@ import {
 
 //Create instances of the classes
 const cardSection = new Section ({
-  data: items,
-  renderer: (item) => {
+  items: initialCards,
+  renderer: function(item) {
     const card = new Card(item, selectors.cardTemplate).generateCard();
+  cardSection.addItem(card);
   },
- selector: selectors.cardSection
-})
+},
+selectors.cardSection)
 
 
 //Initialize all the instances
