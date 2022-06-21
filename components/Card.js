@@ -14,12 +14,21 @@ class Card {
         this._name = data.name;
         this._link = data.link;
         this._cardSelector = cardSelector;
+        this._handleCardClick = handleCardClick;
+      
 
     }
     _setEventListeners() {
         this._element.querySelector(".card__like-button").addEventListener("click", this._handleLike.bind(this));
         this._element.querySelector(".card__delete-button").addEventListener("click", this._handleDelete.bind(this));
         this._element.querySelector(".card__image").addEventListener("click", this._handleImagePreview.bind(this));
+    }
+
+    _handleCardClick() {
+         this._imageElement.addEventListener("click", () => {
+        this._handleCardClick(this._name, this._link);
+      });
+
     }
 
     _handleDelete() {

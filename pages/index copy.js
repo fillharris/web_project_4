@@ -109,7 +109,7 @@ addButton.addEventListener("click", () => {
   openPopup(createPopupWindow);
 });
 
-const closeButtons = document.querySelectorAll(".popup__close-button");
+
 
 //Close popup by clicking outside
 const popups = Array.from(document.querySelectorAll(".popup"));
