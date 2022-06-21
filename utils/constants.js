@@ -27,5 +27,6 @@ export const initialCards = [
 
 export const selectors = {
   cardSection: '.photo-grid__cards',
-  cardTemplate: '#card-template', 
+  cardTemplate: '#card-template',
+ 
 }
