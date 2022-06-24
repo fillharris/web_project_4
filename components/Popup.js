@@ -1,9 +1,8 @@
 class Popup {
   constructor(popupSelector) {
-    this._popupElement = document.querySelector(`.${popupSelector}`);
+    this._popupElement = document.querySelector(popupSelector);
     this._handleEsc = this._handleEsc.bind(this);
     this._popup = document.querySelector(".popup_open");
-    this._popupSelector = popupSelector;
     this._popups = Array.from(document.querySelectorAll(".popup"));
   }
 
@@ -26,7 +25,7 @@ class Popup {
   }
 
   setEventListeners() {
-    this._popupSelector.addEventListener("click", (evt) => {
+    this._popupElement.addEventListener("click", (evt) => {
       if (
         evt.target.classList.contains("popup") ||
         evt.target.classList.contains("popup__close-button") ||
