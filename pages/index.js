@@ -61,21 +61,21 @@ cardSection.renderItems(initialCards);
 
 //All the rest
 //form
-const editProfileFormPopupObj = new PopupWithForm(
+const editProfileFormPopup = new PopupWithForm(
   "#edit-profile-modal",
   () => {
     //create UserInfo object
     const newuser = new UserInfo({userName:".profile__info-name", userJob:".profile__info-title"});
     newuser.setUserInfo({newName: nameInput.value, newJob: titleInput.value});
     //nameInput and titleInput are set earlier, ie nameInput = editProfileForm.querySelector('[name="name"]');
-    editProfileFormPopupObj.close();
+    editProfileFormPopup.close();
 
   },
 );
-editProfileFormPopupObj.setEventListeners();
+editProfileFormPopup.setEventListeners();
 //editProfileFormPopupObj._getInputValues(); //calling private method for testing purposes
 
-const addCardFormPopupObj = new PopupWithForm(
+const addCardFormPopup = new PopupWithForm(
   "#add-card-modal",
   () => {
     //make a new object to store the image url and image label
@@ -84,20 +84,20 @@ const addCardFormPopupObj = new PopupWithForm(
     link: imageLinkInput.value,
   };
 
-  const cardPopupObj = new PopupWithImage(newCardInfo, "#image-popup"); //create popup image for card
+  const cardPopup = new PopupWithImage(newCardInfo, "#image-popup"); //create popup image for card
 //we will send its open() method into cardObj
-cardPopupObj.setEventListeners();
-const cardObj = new Card(newCardInfo, "#card-template", () => {cardPopupObj.open()});//create a card object
+cardPopup.setEventListeners();
+const cardObj = new Card(newCardInfo, "#card-template", () => {cardPopup.open()});//create a card object
 
   const newCard = cardObj.createCardElement(); //create a card element
-  cardGridObject.addItem(newCard);
+  cardGrid.addItem(newCard);
 
   addCardForm.reset();   //clear out the input fields
   addCardFormObj.setButtonInactive();  //Set button to inactive-it needs to be hidden because the fields are empty
-  addCardFormPopupObj.close(); //close the modal panel when submitted
+  addCardFormPopup.close(); //close the modal panel when submitted
   },
 );
-addCardFormPopupObj.setEventListeners();
+addCardFormPopup.setEventListeners();
 
 
 // Validation
