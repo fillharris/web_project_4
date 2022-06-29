@@ -1,4 +1,3 @@
-
 //Import all the classes
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
@@ -6,82 +5,72 @@ import Section from "../components/Section.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
-import {
-  initialCards,
-  selectors,
-  settings
-} from "../utils/constants.js";
+import { initialCards, selectors, settings } from "../utils/constants.js";
 
 // Wrappers
 
- const editPopupWindow = document.querySelector(".edit-popup");
- const createPopupWindow = document.querySelector(".create-popup");
- const editForm = document.querySelector(".popup__edit-container");
- const photoGridWrap = document.querySelector(".photo-grid__cards");
- const createForm = document.querySelector(
-".popup__create-container .popup__form"
+const editPopupWindow = document.querySelector(".edit-popup");
+const createPopupWindow = document.querySelector(".create-popup");
+const editForm = document.querySelector(".popup__edit-container");
+const photoGridWrap = document.querySelector(".photo-grid__cards");
+const createForm = document.querySelector(
+  ".popup__create-container .popup__form"
 );
 
-const editProfileButton = document.querySelector(".profile__edit-button"); ///find the edit button from profile-this opens the modal panel
-const editProfilePopup = document.querySelector(".popup__edit-container"); //using ID to find the modal (pop up). ID is unique, makes it a little better than a class. needed because there are multiple modals (pop ups) with same class
-const editProfileForm = editProfilePopup.querySelector(".popup__form"); //find the form. form has 2 text boxes and a submit button. Search within editProfileModal instead of document so that we find the correct form
-//find the text on the page that shows name and title
 const nameText = document.querySelector(".profile__info-name");
 const titleText = document.querySelector(".profile__info-title");
 
 // Buttons and other DOM elements
 
- const editButton = document.querySelector(".profile__edit-button");
- const addButton = document.querySelector(".profile__add-button");
- const editCloseButton = document.querySelector(".popup__close-edit");
- const createCloseButton = document.querySelector(".popup__close-create");
- const profileTitle = document.querySelector(".profile__name");
- const profileDescription = document.querySelector(".profile__title");
-
-
- 
-
-// Form Data
-
- const titleInputField = editForm.querySelector(".popup__input_type_title");
- const descriptionInputField = editForm.querySelector(
-".popup__input_type_description"
-);
-
- const nameInput = editProfileForm.querySelector('[name="name"]');
- const titleInput = editProfileForm.querySelector('[name="description"]');
-
- const nameInputField = createForm.querySelector(".popup__input_type_name");
- const linkInputField = createForm.querySelector(".popup__input_type_link");
-
-const addCardButton = document.querySelector(".profile__add-button"); 
-const addCardPopup = document.querySelector(".create-popup"); 
+const editProfileButton = document.querySelector(".profile__edit-button");
+const editProfilePopup = document.querySelector(".popup__edit-container");
+const editProfileForm = editProfilePopup.querySelector(".popup__form");
+const addCardButton = document.querySelector(".profile__add-button");
+const addCardPopup = document.querySelector(".create-popup");
 const addCardForm = addCardPopup.querySelector(".popup__form");
 
+const editButton = document.querySelector(".profile__edit-button");
+const addButton = document.querySelector(".profile__add-button");
+const editCloseButton = document.querySelector(".popup__close-edit");
+const createCloseButton = document.querySelector(".popup__close-create");
+const profileTitle = document.querySelector(".profile__name");
+const profileDescription = document.querySelector(".profile__title");
+
+// Form Data
+const titleInputField = editForm.querySelector(".popup__input_type_title");
+const descriptionInputField = editForm.querySelector(
+  ".popup__input_type_description"
+);
+const nameInput = editProfileForm.querySelector('[name="name"]');
+const titleInput = editProfileForm.querySelector('[name="description"]');
 const imageNameInput = addCardForm.querySelector('[name="place-name"]');
 const imageLinkInput = addCardForm.querySelector('[name="link"]');
 
 //Create instances of the classes
-const cardSection = new Section ({
-  items: initialCards,
-  renderer: function(item) {
-    const card = new Card(item, selectors.cardTemplate).generateCard();
-  cardSection.addItem(card);
+const cardSection = new Section(
+  {
+    items: initialCards,
+    renderer: function (item) {
+      const card = new Card(item, selectors.cardTemplate).generateCard();
+      cardSection.addItem(card);
+    },
   },
-},
-selectors.cardSection)
+  selectors.cardSection
+);
 
 //Initialize all the instances
 cardSection.renderItems(initialCards);
 
-
 //All the rest
 //form
 const editProfileFormPopup = new PopupWithForm({
- popupSelector: ".popup__edit-container",
- handleformsubmit: () => {
-    const newuser = new UserInfo({name:".popup__input_type_title" , job:".popup__input_type_description"});
-    newuser.setUserInfo({newName: nameInput.value, newJob: titleInput.value});
+  popupSelector: ".popup__edit-container",
+  handleformsubmit: () => {
+    const newuser = new UserInfo({
+      name: ".popup__input_type_title",
+      job: ".popup__input_type_description",
+    });
+    newuser.setUserInfo({ newName: nameInput.value, newJob: titleInput.value });
     editProfileFormPopup.close();
   },
 });
@@ -95,34 +84,32 @@ editProfileButton.addEventListener("click", () => {
 const addCardFormPopup = new PopupWithForm({
   popupSelector: ".popup__create-container",
   handleFormSubmit: () => {
-  const newCardInfo = {
-    name: imageNameInput.value,
-    link: imageLinkInput.value,
-  };
+    const newCardInfo = {
+      name: imageNameInput.value,
+      link: imageLinkInput.value,
+    };
 
-const cardPopup = new PopupWithImage(newCardInfo, ".card__image"); 
+    const cardPopup = new PopupWithImage(newCardInfo, ".card__image");
 
-cardPopup.setEventListeners();
+    cardPopup.setEventListeners();
 
-const cardObj = new Card(newCardInfo, "#card-template", () => {cardPopup.open()});
+    const cardObj = new Card(newCardInfo, "#card-template", () => {
+      cardPopup.open();
+    });
 
-  const newCard = cardObj.createCardElement(); 
-  cardGrid.addItem(newCard);
+    const newCard = cardObj.createCardElement();
+    cardGrid.addItem(newCard);
 
-  addCardForm.reset();   
-  addCardFormObj.setButtonInactive(); 
-  addCardFormPopup.close(); 
+    addCardForm.reset();
+    addCardFormObj.setButtonInactive();
+    addCardFormPopup.close();
   },
 });
 addCardFormPopup.setEventListeners();
 
 addCardButton.addEventListener("click", () => {
   addCardFormPopup.open();
-console.log(addCardFormPopup);
 });
-
-
-
 
 // Validation
 const addFormElement = createPopupWindow.querySelector(".popup__form");
