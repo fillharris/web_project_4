@@ -39,3 +39,4 @@ export const selectors = {
   inputErrorClass: "popup__error",
   errorClass: "popup__error_visible",
 }
+
