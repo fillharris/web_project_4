@@ -3,7 +3,7 @@ class Popup {
     this._popupElement = document.querySelector(popupSelector);
     this._handleEsc = this._handleEsc.bind(this);
     this._popup = document.querySelector(".popup");
-    this._popups = Array.from(document.querySelectorAll(".popup"));
+    //this._popups = Array.from(document.querySelectorAll(".popup"));
   }
 
   _handleEsc(evt) {

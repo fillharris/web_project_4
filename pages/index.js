@@ -54,9 +54,9 @@ const titleText = document.querySelector(".profile__info-title");
  const nameInputField = createForm.querySelector(".popup__input_type_name");
  const linkInputField = createForm.querySelector(".popup__input_type_link");
 
-const addCardButton = document.querySelector(".profile__add-button"); ///find the + button (add card)-this opens the modal panel
-const addCardPopup = document.querySelector(".create-popup"); //using ID to find the modal (pop up).
-const addCardForm = addCardPopup.querySelector(".popup__form"); //find the form.
+const addCardButton = document.querySelector(".profile__add-button"); 
+const addCardPopup = document.querySelector(".create-popup"); 
+const addCardForm = addCardPopup.querySelector(".popup__form");
 
 const imageNameInput = addCardForm.querySelector('[name="imagename"]');
 const imageLinkInput = addCardForm.querySelector('[name="imagelink"]');
@@ -82,10 +82,10 @@ const editProfileFormPopup = new PopupWithForm({
  handleformsubmit: () => {
     const newuser = new UserInfo({name:".popup__input_type_title" , job:".popup__input_type_description"});
     newuser.setUserInfo({newName: nameInput.value, newJob: titleInput.value});
-    //nameInput and titleInput are set earlier, ie nameInput = editProfileForm.querySelector('[name="name"]');
     editProfileFormPopup.close();
   },
 });
+
 editProfileFormPopup.setEventListeners();
 
 editProfileButton.addEventListener("click", () => {
@@ -93,30 +93,32 @@ editProfileButton.addEventListener("click", () => {
 });
 
 const addCardFormPopup = new PopupWithForm({
-  popupSelector: ".create-popup",
+  popupSelector: ".popup__create-container",
   handleFormSubmit: () => {
   const newCardInfo = {
     name: imageNameInput.value,
     link: imageLinkInput.value,
   };
 
-  const cardPopup = new PopupWithImage(newCardInfo, ".card__image"); //create popup image for card
-//we will send its open() method into cardObj
-cardPopup.setEventListeners();
-const cardObj = new Card(newCardInfo, "#card-template", () => {cardPopup.open()});//create a card object
+const cardPopup = new PopupWithImage(newCardInfo, ".card__image"); 
 
-  const newCard = cardObj.createCardElement(); //create a card element
+cardPopup.setEventListeners();
+
+const cardObj = new Card(newCardInfo, "#card-template", () => {cardPopup.open()});
+
+  const newCard = cardObj.createCardElement(); 
   cardGrid.addItem(newCard);
 
-  addCardForm.reset();   //clear out the input fields
-  addCardFormObj.setButtonInactive();  //Set button to inactive-it needs to be hidden because the fields are empty
-  addCardFormPopup.close(); //close the modal panel when submitted
+  addCardForm.reset();   
+  addCardFormObj.setButtonInactive(); 
+  addCardFormPopup.close(); 
   },
 });
 addCardFormPopup.setEventListeners();
 
 addCardButton.addEventListener("click", () => {
   addCardFormPopup.open();
+console.log(addCardFormPopup);
 });
 
 
