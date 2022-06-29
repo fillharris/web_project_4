@@ -58,7 +58,7 @@ const addCardButton = document.querySelector(".profile__add-button");
 const addCardPopup = document.querySelector(".create-popup"); 
 const addCardForm = addCardPopup.querySelector(".popup__form");
 
-const imageNameInput = addCardForm.querySelector('[name=""place-name"]');
+const imageNameInput = addCardForm.querySelector('[name="place-name"]');
 const imageLinkInput = addCardForm.querySelector('[name="link"]');
 
 //Create instances of the classes
