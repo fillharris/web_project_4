@@ -1,50 +1,46 @@
 class Popup {
   constructor(popupSelector) {
-    this._popupElement = document.querySelector(popupSelector);
-    this._handleEsc = this._handleEsc.bind(this);
-    this._popup = document.querySelector(".popup");
-    //this._popups = Array.from(document.querySelectorAll(".popup"));
+    this._popup = document.querySelector(popupSelector);
+    this._button = this._popup.querySelector(".popup__close-button");
+  }
+  open() {
+    /* The visible class overrides the previous class because its farther down the page. see modal.css.*/
+    this._popup.classList.add(
+      "popup_open"
+    ); /*activate a class that makes it visible*/
+    
+    document.addEventListener("keydown", this._handleEscClose); //close on esc
   }
 
-  _handleEsc(evt) {
+  close() {
+    this._popup.classList.remove(
+      "popup_open"
+    ); /*deactivate a class that makes it visible*/
+    document.removeEventListener("keydown", this._handleEscClose);
+  }
+
+  _handleEscClose = (evt) =>{
+    //this is an arrow function
+    //that way, we do not have to create an arrow function when setting the event listener
+    //also because we do not create a new arrow function when setting event listener, we can remove this event listener
     if (evt.key === "Escape") {
-      close(this._popup);
+      this.close();
     }
   }
 
-  _handleClickOutsideToClose() {
-       this._popup.addEventListener("mousedown", (evt) => {
-        if (
-          evt.target.classList.contains("popup") ||
-          evt.target.classList.contains("popup__close-button")
-        ) {
-          close(this._popup);
-        }
-      });
-  
-  }
-
   setEventListeners() {
-    this._popupElement.addEventListener("click", (evt) => {
-      if (
-        evt.target.classList.contains("popup") ||
-        evt.target.classList.contains("popup__close-button") ||
-        evt.target.classList.contains("popup_open")
-      ) {
+    //close when X is clicked
+    this._button.addEventListener("click", () => this.close());
+
+    this._popup.addEventListener("mousedown", (evt) => {
+      //use mousedown so that if user clicks on box and drags outside, this event does not trigger
+      //only triggers if they click outside modal box
+
+      if (evt.target.classList.contains("popup")) {
         this.close();
       }
     });
   }
-
-  open() {
-    this._popup.classList.add("popup_open");
-    document.addEventListener("keydown", this._handleEsc);
-  }
-
-  close() {
-    this._popup.classList.remove("popup_open");
-    document.removeEventListener("keydown", this._handleEsc);
-  }
 }
 
-export default Popup;
+export default Popup;;

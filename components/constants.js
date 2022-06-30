@@ -25,13 +25,7 @@ export const initialCards = [
   },
 ];
 
-export const selectors = {
-  cardSection: '.photo-grid__cards',
-  cardTemplate: '#card-template',
- 
-}
-
- export const settings = {
+ export const customSettings = {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
   submitButtonSelector: ".popup__button",
