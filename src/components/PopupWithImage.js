@@ -7,8 +7,8 @@ class PopupWithImage extends Popup{
         
     }
     _setDataImagePopup() {
-        const imagePopupPic = this._modal.querySelector(".popup__preview-image");
-        const imagePopupText = this._modal.querySelector(".popup__preview-name");
+        const imagePopupPic = this._popup.querySelector(".popup__preview-image");
+        const imagePopupText = this._popup.querySelector(".popup__preview-name");
         imagePopupPic.src = this.link;
         imagePopupText.textContent = this.name;
         imagePopupPic.alt = this.name;
