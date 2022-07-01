@@ -1,4 +1,4 @@
-<div align="center"><img src="favicon.ico"></div>
+<div align="center"><img src="./src/images/favicon.ico"></div>
 
 <h1 align="center">Around South Carolina</h1>
   
