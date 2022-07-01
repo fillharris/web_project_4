@@ -1,3 +1,4 @@
+import './index.css'
 //Import classes
 import { FormValidator} from "../components/FormValidator.js";
 
