@@ -61,10 +61,10 @@ const formValidatorObjectList = formElementsList.map((form) => {
 });
 
 const editProfileFormObject = formValidatorObjectList.find(
-  (obj) => obj.formElement.getAttribute("name") == "nameandtitle"
+  (obj) => obj.formElement.getAttribute("newName") == "nameanddescription"
 );
 const addCardFormObject = formValidatorObjectList.find(
-  (obj) => obj.formElement.getAttribute("name") == "imagenameandlink"
+  (obj) => obj.formElement.getAttribute("newName") == "imagenameandlink"
 );
 
 const cardGridObject = new Section(
@@ -80,7 +80,7 @@ const cardGridObject = new Section(
 cardGridObject.renderItems();
 
 const editProfileFormPopupObject = new PopupWithForm("#edit-popup", (values) => {
-  user.setUserInfo({ newName: values.name, newJob: values.title });
+  user.setUserInfo({ newName: values.name, newJob: values.description });
   editProfileFormPopupObject.close();
 });
 editProfileFormPopupObject.setEventListeners();
@@ -105,9 +105,11 @@ addCardButton.addEventListener("click", () => {
 
 editProfileButton.addEventListener("click", () => {
   editProfileFormPopupObject.open();
+
+  user.setUserInfo();
   
-  nameInput.value = nameText.textContent;
-  titleInput.value = titleText.textContent;
+  //nameInput.value = nameText.textContent;
+  //titleInput.value = titleText.textContent;
   
   editProfileFormObject.clearAllErrors();
 
