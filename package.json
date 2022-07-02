@@ -4,7 +4,8 @@
   "description": "<div align=\"center\"><img src=\"favicon.ico\"></div>",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config webpack.config.js"
+    "build": "rm -rf dist && webpack",
+    "dev": "webpack serve"
   },
   "repository": {
     "type": "git",
