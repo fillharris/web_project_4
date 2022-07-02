@@ -22,6 +22,7 @@ class FormValidator {
     errorElement.classList.remove(this.settings.errorClass); 
     errorElement.textContent = "";
   }
+
   clearAllErrors()
   {
     const inputList = Array.from(
@@ -33,6 +34,7 @@ class FormValidator {
       this._hideInputError(inputElement);
     });
   }
+  
   _checkInputValidity(inputElement) {
     if (!inputElement.validity.valid) {
       this._showInputError(inputElement, inputElement.validationMessage);

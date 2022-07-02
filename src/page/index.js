@@ -63,9 +63,10 @@ const formValidatorObjectList = formElementsList.map((form) => {
 const editProfileFormObject = formValidatorObjectList.find(
   (obj) => obj.formElement.getAttribute("name") == "nameanddescription"
 );
+console.log(editProfileFormObject);
 const addCardFormObject = formValidatorObjectList.find(
-  (obj) => obj.formElement.getAttribute("name") == "imagenameandlink"
-);
+  (obj) => obj.formElement.getAttribute("name") == "nameandlink"
+);console.log(addCardFormObject);
 
 const cardGridObject = new Section(
   {
