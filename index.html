@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon" />
+
+    <!-- custom css file -->
+    <link rel="stylesheet" href="./pages/index.css" />
+
+    <title>Around S.C.</title>
+  <script defer src="main.js"></script><link href="main.css" rel="stylesheet"></head>
+
+  <body class="page">
+    <!-- start header content -->
+    <header class="header">
+      <img
+        class="header__logo"
+        src="27b9b3185bd8cb7b1ebc.svg"
+        alt="Around S.C. text"
+      />
+    </header>
+
+    <!-- start main content -->
+    <main class="content">
+      <!-- start profile content -->
+      <section class="profile">
+        <img
+          class="profile__image"
+          src="37ab20e35b9eb85f35fa.png"
+          alt="profile portrait image"
+        />
+        <div class="profile__container">
+          <div class="profile__info">
+            <h1 class="profile__name">Phil Harris</h1>
+            <button
+              class="profile__edit-button"
+              id="profile__edit-button"
+              aria-label="Edit"
+              type="button"
+            ></button>
+
+            <p class="profile__title">Keyboard Explorer</p>
+          </div>
+        </div>
+        <button
+          class="profile__add-button"
+          id="profile__add-button"
+          aria-label="Add"
+          type="button"
+        ></button>
+      </section>
+
+      <!-- start photo-grid content -->
+      <section class="photo-grid">
+        <ul class="photo-grid__cards"></ul>
+      </section>
+    </main>
+
+    <!-- start footer content -->
+    <footer class="footer">
+      <p class="footer__copyright">© 2022 Around South Carolina</p>
+    </footer>
+
+    <!-- start edit-popup content -->
+    <div class="popup edit-popup" id="edit-popup">
+      <div class="popup__edit-container">
+        <button
+          type="button"
+          class="popup__close-button popup__close-edit"
+        ></button>
+        <h3 class="popup__title">Edit profile</h3>
+        <form name="nameanddescription" class="popup__form" novalidate>
+          <input
+            class="popup__input popup__input_type_title"
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Name"
+            required
+            minlength="2"
+            maxlength="40"
+          />
+          <span class="popup__error name-error"></span>
+          <input
+            class="popup__input popup__input_type_description"
+            type="text"
+            name="description"
+            id="description"
+            placeholder="Description"
+            required
+            minlength="2"
+            maxlength="200"
+          />
+          <span class="popup__error description-error"></span>
+          <button class="button popup__button popup__save-button" type="submit">
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!--start create-popup content-->
+    <div class="popup create-popup" id="create-popup">
+      <div class="popup__create-container">
+        <button
+          type="button"
+          class="popup__close-button popup__close-create"
+        ></button>
+        <h3 class="popup__title">New Place</h3>
+        <form name="nameandlink" class="popup__form" novalidate>
+          <input
+            class="popup__input popup__input_type_name"
+            type="text"
+            name="place-name"
+            id="place-name"
+            placeholder="Name"
+            required
+            minlength="1"
+            maxlength="30"
+          />
+          <span class="popup__error place-name-error"></span>
+          <input
+            class="popup__input popup__input_type_link"
+            type="url"
+            name="link"
+            id="link"
+            placeholder="Image URL"
+            required
+          />
+          <span class="popup__error link-error"></span>
+          <button class="button popup__button popup__save-button" type="submit">
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- start preview-popup content -->
+    <div class="popup preview-popup" id="preview-popup">
+      <div class="popup__create-container popup__create-container_preview">
+        <button
+          class="popup__close-button popup__close-button_preview"
+          type="button"
+          aria-label="Close"
+        ></button>
+        <img class="popup__preview-image" src=" " alt=" " />
+        <h3 class="popup__preview-name"></h3>
+      </div>
+    </div>
+
+    <!-- start card-template content -->
+    <template id="card-template">
+      <li class="card">
+        <div class="card__image" style=""></div>
+        <button type="button" class="card__delete-button"></button>
+        <div class="card__info">
+          <h2 class="card__title"></h2>
+          <button
+            class="card__like-button"
+            aria-label="Like"
+            type="button"
+          ></button>
+        </div>
+      </li>
+    </template>
+
+    <!-- custom JS files -->
+    <script src="./pages/index.js" type="module"></script>
+  </body>
+</html>
