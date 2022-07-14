@@ -65,66 +65,70 @@
 
     <!-- start confirm delete content -->
     <!--<div class="popup__overlay"></div>-->
-    <div class="popup__container popup__container_type_delete">
-      <button
-        class="button button_action_close"
-        type="reset"
-        aria-label="close-delete-modal"
-      ></button>
-      <h2 class="popup__title">Are you sure?</h2>
-      <form
-        id="delete-form"
-        name="deleteForm"
-        class="popup__form"
-        action="#"
-        novalidate
-      >
+    <div class="popup delete-popup" id="delete-popup">
+      <div class="popup__delete-container">
         <button
-          class="button button_action_submit"
-          type="submit"
-          value="Save"
-          aria-label="confirm-delete-card"
+          class="button popup__close-button"
+          type="reset"
+          aria-label="close-delete-modal"
+        ></button>
+        <h2 class="popup__title">Are you sure?</h2>
+        <form
+          id="delete-form"
+          name="deleteForm"
+          class="popup__form"
+          action="#"
+          novalidate
         >
-          Yes
-        </button>
-      </form>
+          <button
+            class="button button_action_submit"
+            type="submit"
+            value="Save"
+            aria-label="confirm-delete-card"
+          >
+            Yes
+          </button>
+        </form>
+      </div>
     </div>
 
     <!-- start avatar content -->
-    <div class="popup__container popup__container_type_avatar">
-      <button
-        class="button button_action_close"
-        type="reset"
-        aria-label="close-change-avatar-modal"
-      ></button>
-      <h2 class="popup__title">Change profile picture</h2>
-      <form
-        id="avatar-form"
-        name="avatarForm"
-        class="popup__form"
-        action="#"
-        novalidate
-      >
-        <input
-          class="popup__input"
-          type="url"
-          id="avatar"
-          name="avatar"
-          placeholder="Enter link to image"
-          minlength="2"
-          required
-        />
-        <span class="popup__input-error" id="avatar-input-error"></span>
-
+    <div class="popup avatar-popup" id="avatar-popup">
+      <div class="pupup__avatar-container">
         <button
-          class="button button_action_submit button_inactive"
-          type="submit"
-          value="Save"
-          aria-label="submit-change-avatar"
+          class="button popup__close-button"
+          type="reset"
+          aria-label="close-change-avatar-modal"
+        ></button>
+        <h2 class="popup__title">Change profile picture</h2>
+        <form
+          id="avatar-form"
+          name="avatarForm"
+          class="popup__form"
+          action="#"
+          novalidate
         >
-          Save
-        </button>
-      </form>
+          <input
+            class="popup__input"
+            type="url"
+            id="avatar"
+            name="avatar"
+            placeholder="Enter link to image"
+            minlength="2"
+            required
+          />
+          <span class="popup__error" id="avatar-input-error"></span>
+
+          <button
+            class="button popup__button popup__save-button"
+            type="submit"
+            value="Save"
+            aria-label="submit-change-avatar"
+          >
+            Save
+          </button>
+        </form>
+      </div>
     </div>
 
     <!-- start edit-popup content -->
@@ -132,7 +136,7 @@
       <div class="popup__edit-container">
         <button
           type="button"
-          class="popup__close-button popup__close-edit"
+          class="button popup__close-button popup__close-edit"
         ></button>
         <h3 class="popup__title">Edit profile</h3>
         <form name="nameanddescription" class="popup__form" novalidate>
