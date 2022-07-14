@@ -33,17 +33,34 @@ const titleInput = editProfileForm.querySelector('[name="description"]');
 const imageNameInput = addCardForm.querySelector('[name="place-name"]');
 const imageLinkInput = addCardForm.querySelector('[name="link"]');
 
+const imagePopupObject = new PopupWithImage("#preview-popup"); 
+imagePopupObject.setEventListeners();
+
+const user = new UserInfo({
+  userName: ".profile__name",
+  userJob: ".profile__title",
+  userAvatar: ".profile__image"
+});
+
+
 //Token and ID info
 //Token: b1411637-441a-4d25-9227-6de5bf8bcf24 
 //Group ID: group-12
-fetch("https://around.nomoreparties.co/v1/group-12/cards", {
+const api = new Api({
+  baseUrl: "https://around.nomoreparties.co/v1/group-12",
   headers: {
-    authorization: "b1411637-441a-4d25-9227-6de5bf8bcf24"
+    authorization: "b1411637-441a-4d25-9227-6de5bf8bcf24",
+    "Content-Type": "application/json"
   }
-})
-  .then(res => res.json())
-  .then((result) => {
-    console.log(result);
+}); 
+
+api
+  .getUserInfo()
+  .then((data) => {
+    user.setUserInfo(data);
+  })
+  .catch((err) => {
+    console.log(err);
   });
 
 function renderCard(cardContainer, data, cardPopupObject)
@@ -56,13 +73,6 @@ function renderCard(cardContainer, data, cardPopupObject)
   cardContainer.addItem(newCard);
 }
 
-const imagePopupObject = new PopupWithImage("#preview-popup"); 
-imagePopupObject.setEventListeners();
-
-const user = new UserInfo({
-  userName: ".profile__name",
-  userJob: ".profile__title",
-});
 
 
 const formElementsList = Array.from(
