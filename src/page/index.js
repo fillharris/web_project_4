@@ -1,5 +1,7 @@
 import './index.css'
 //Import classes
+import Api from "../components/Api.js";
+
 import { FormValidator} from "../components/FormValidator.js";
 
 import {Card } from "../components/Card.js";
