@@ -63,6 +63,70 @@
       <p class="footer__copyright">© 2022 Around South Carolina</p>
     </footer>
 
+    <!-- start confirm delete content -->
+    <!--<div class="popup__overlay"></div>-->
+    <div class="popup__container popup__container_type_delete">
+      <button
+        class="button button_action_close"
+        type="reset"
+        aria-label="close-delete-modal"
+      ></button>
+      <h2 class="popup__title">Are you sure?</h2>
+      <form
+        id="delete-form"
+        name="deleteForm"
+        class="popup__form"
+        action="#"
+        novalidate
+      >
+        <button
+          class="button button_action_submit"
+          type="submit"
+          value="Save"
+          aria-label="confirm-delete-card"
+        >
+          Yes
+        </button>
+      </form>
+    </div>
+
+    <!-- start avatar content -->
+    <div class="popup__container popup__container_type_avatar">
+      <button
+        class="button button_action_close"
+        type="reset"
+        aria-label="close-change-avatar-modal"
+      ></button>
+      <h2 class="popup__title">Change profile picture</h2>
+      <form
+        id="avatar-form"
+        name="avatarForm"
+        class="popup__form"
+        action="#"
+        novalidate
+      >
+        <input
+          class="popup__input"
+          type="url"
+          id="avatar"
+          name="avatar"
+          placeholder="Enter link to image"
+          minlength="2"
+          required
+        />
+        <span class="popup__input-error" id="avatar-input-error"></span>
+
+        <button
+          class="button button_action_submit button_inactive"
+          type="submit"
+          value="Save"
+          aria-label="submit-change-avatar"
+        >
+          Save
+        </button>
+      </form>
+    </div>
+
     <!-- start edit-popup content -->
     <div class="popup edit-popup" id="edit-popup">
       <div class="popup__edit-container">
