@@ -31,6 +31,19 @@ const titleInput = editProfileForm.querySelector('[name="description"]');
 const imageNameInput = addCardForm.querySelector('[name="place-name"]');
 const imageLinkInput = addCardForm.querySelector('[name="link"]');
 
+//Token and ID info
+//Token: b1411637-441a-4d25-9227-6de5bf8bcf24 
+//Group ID: group-12
+fetch("https://around.nomoreparties.co/v1/group-12/cards", {
+  headers: {
+    authorization: "b1411637-441a-4d25-9227-6de5bf8bcf24"
+  }
+})
+  .then(res => res.json())
+  .then((result) => {
+    console.log(result);
+  });
+
 function renderCard(cardContainer, data, cardPopupObject)
 {
   const cardObject = new Card(data, "#card-template", () => {
