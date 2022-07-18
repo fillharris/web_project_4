@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="./images/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="../src/images/favicon.ico" type="image/x-icon" />
 
     <!-- custom css file -->
     <link rel="stylesheet" href="./pages/index.css" />
@@ -31,6 +31,7 @@
           src="37ab20e35b9eb85f35fa.png"
           alt="profile portrait image"
         />
+        <button class="profile__icon" id="profile__avatar-button"></button>
         <div class="profile__container">
           <div class="profile__info">
             <h1 class="profile__name">Phil Harris</h1>
@@ -63,12 +64,80 @@
       <p class="footer__copyright">© 2022 Around South Carolina</p>
     </footer>
 
+    <!-- start confirm delete content -->
+    <!--<div class="popup__overlay"></div>-->
+    <div class="popup delete-popup" id="delete-popup">
+      <div class="popup__delete-container">
+        <button
+          class="button popup__close-button"
+          type="reset"
+          aria-label="close-delete-modal"
+        ></button>
+        <h2 class="popup__title">Are you sure?</h2>
+        <form
+          id="delete-form"
+          name="deleteForm"
+          class="popup__form"
+          action="#"
+          novalidate
+        >
+          <button
+            class="button button_action_submit"
+            type="submit"
+            value="Save"
+            aria-label="confirm-delete-card"
+          >
+            Yes
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- start avatar content -->
+    <div class="popup avatar-popup" id="avatar-popup">
+      <div class="pupup__avatar-container">
+        <button
+          class="button popup__close-button"
+          type="reset"
+          aria-label="close-change-avatar-modal"
+        ></button>
+        <h2 class="popup__title">Change profile picture</h2>
+        <form
+          id="avatar-form"
+          name="avatarForm"
+          class="popup__form"
+          action="#"
+          novalidate
+        >
+          <input
+            class="popup__input"
+            type="url"
+            id="avatar"
+            name="avatar"
+            placeholder="Enter link to image"
+            minlength="2"
+            required
+          />
+          <span class="popup__error" id="avatar-input-error"></span>
+
+          <button
+            class="button popup__button popup__save-button"
+            type="submit"
+            value="Save"
+            aria-label="submit-change-avatar"
+          >
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
+
     <!-- start edit-popup content -->
     <div class="popup edit-popup" id="edit-popup">
       <div class="popup__edit-container">
         <button
           type="button"
-          class="popup__close-button popup__close-edit"
+          class="button popup__close-button popup__close-edit"
         ></button>
         <h3 class="popup__title">Edit profile</h3>
         <form name="nameanddescription" class="popup__form" novalidate>
