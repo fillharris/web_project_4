@@ -86,6 +86,26 @@
   opacity: 0.6;
 }
 
+.profile__icon {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url(../images/edit.svg);
+  width: 120px;
+  height: 120px;
+  background-color: #c4c4c4;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  border-radius: 50%; /*circular crop */
+}
+
+.profile__icon:hover {
+  opacity: 0.8;
+}
+
 @media screen and (max-width: 900px) {
   .profile {
     margin-left: 100px;
