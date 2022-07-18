@@ -146,7 +146,7 @@ function renderCard(cardContainer, data, cardPopupObject, deletePopupObject) {
           .likeCard(cardObject.getId())
           .then((data) => cardObject.setLikes(data.likes))
           .catch((err) => {
-            console.log(err); // log the error to the console
+            console.log(err); 
           });
       } else {
         api

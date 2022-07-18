@@ -7,9 +7,6 @@ module.exports = {
   entry: {
     main: './src/page/index.js'
   },
-  stats: {
-    children: true,
-  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
