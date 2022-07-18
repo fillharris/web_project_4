@@ -43,6 +43,17 @@ imagePopupObject.setEventListeners();
 //Token and ID info
 //Token: b1411637-441a-4d25-9227-6de5bf8bcf24
 //Group ID: group-12
+
+fetch("https://around.nomoreparties.co/v1/group-12/users/me", {
+  headers: {
+    authorization: "7201271b-2cce-46ab-9f28-d324b822f8cb",
+  },
+})
+  .then((res) => res.json())
+  .then((result) => {
+    console.log(result);
+  });
+
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-12",
   headers: {
