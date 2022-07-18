@@ -6,7 +6,7 @@ import { FormValidator} from "../components/FormValidator.js";
 
 import {Card } from "../components/Card.js";
 
-import { initialCards, customSettings  } from "../components/constants.js";
+import { customSettings  } from "../components/constants.js";
 
 import Section from "../components/Section.js";
 
@@ -66,7 +66,7 @@ const user = new UserInfo({
 // }
 
 function handleCardClick(name, imageUrl) {
-  imagePopup.open(name, imageUrl);
+  imagePopupObject.open(name, imageUrl);
 }
 
 function handleLikeClick(card, cardId, isLiked) {
@@ -82,7 +82,7 @@ const cardGridObject = new Section(
   {
     items: null,
     renderer: (data) => {
-      renderCard(cardGridObject, data, imagePopupObject, deleteCardObject);
+      renderCard(cardGridObject, data, imagePopupObject, deleteCardFormPopupObject);
     },
   },
   ".photo-grid__cards"
