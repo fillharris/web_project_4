@@ -16,7 +16,7 @@ import PopupWithForm from "../components/PopupWithForm.js";
 
 import { UserInfo } from "../components/UserInfo.js";
 
-import PopupWithConfirm from "../components/Popupwithconfirm.js";
+import PopupWithConfirm from "../components/PopupWithConfirm.js";
 
 // Buttons and other DOM elements
 
