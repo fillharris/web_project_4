@@ -14,7 +14,6 @@ class Api {
       if (res.ok) {
         return res.json();
       }
-      //if server returns error, reject the promise
       return Promise.reject(`Error: ${res.status}`);
     });
   }
@@ -27,7 +26,6 @@ class Api {
       if (res.ok) {
         return res.json();
       }
-      //if server returns error, reject the promise
       return Promise.reject(`Error: ${res.status}`);
     });
   }
@@ -42,7 +40,6 @@ class Api {
   }
 
   patchUserInfo(info) {
-    //user.getUserInfo() is passed in for info
     const url = this._baseUrl + "/users/me";
     return fetch(url, {
       method: "PATCH",
@@ -69,7 +66,6 @@ class Api {
       if (res.ok) {
         return res.json();
       }
-      //if server returns error, reject the promise
       return Promise.reject(`Error: ${res.status}`);
     });
   }
@@ -83,7 +79,6 @@ class Api {
       if (res.ok) {
         return res.json();
       }
-      //if server returns error, reject the promise
       return Promise.reject(`Error: ${res.status}`);
     });
   }
@@ -97,9 +92,9 @@ class Api {
       if (res.ok) {
         return res.json();
       }
-      //if server returns error, reject the promise
       return Promise.reject(`Error: ${res.status}`);
     });
   }
 }
+
 export { Api };
