@@ -11,6 +11,10 @@ class Section {
     this._container.innerHTML = "";
   }
 
+  setItems(items) {
+    this._itemsArray = items;
+  }
+
   renderItems() {
     this.clear();
     this._itemsArray.forEach((item) => {
