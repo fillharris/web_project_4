@@ -5,6 +5,17 @@ class PopupWithForm extends Popup {
     super(popupSelector);
     this._handleFormSubmit = handleFormSubmit;
     this._form = this._popup.querySelector(".popup__form");
+    this._buttonText = this._form.querySelector(".popup__save-button");
+    this._originaTtext = this._buttonText.textContent;
+  }
+
+  setLoadingText(isLoading) {
+    console.log({ isLoading });
+    if (isLoading === true) {
+      this._buttonText.textContent = "Loading...";
+    } else {
+      this._buttonText.textContent = this._originalText;
+    }
   }
 
   _getInputValues() {
