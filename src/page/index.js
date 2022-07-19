@@ -46,7 +46,7 @@ imagePopupObject.setEventListeners();
 
 fetch("https://around.nomoreparties.co/v1/group-12/users/me", {
   headers: {
-    authorization: "7201271b-2cce-46ab-9f28-d324b822f8cb",
+    authorization: "b1411637-441a-4d25-9227-6de5bf8bcf24",
   },
 })
   .then((res) => res.json())
