@@ -180,7 +180,7 @@
 .profile {
   display: grid;
   grid-template-areas: "avatar info add-button";
-  margin: 0px auto 46.25px auto; 
+  margin: 0px auto 46px auto; 
   max-width: 902.5px;
   grid-column-gap: 0px; 
   grid-template-columns:
@@ -309,7 +309,7 @@
       "info"
       "add-button";
     grid-template-columns: minmax(auto, 282px); 
-    grid-row-gap: 26.25px;
+    grid-row-gap: 26px;
   }
 
   .profile__avatar {
@@ -347,6 +347,6 @@
   }
 
   .profile__add-button {
-    margin-top: 9.75px;
+    margin-top: 10px;
   }
 }
