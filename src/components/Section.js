@@ -7,14 +7,15 @@ class Section {
     this._container = document.querySelector(containerSelector);
   }
 
-  clear() {
-    this._container.innerHTML = "";
-  }
-
   setItems(items) {
     this._itemsArray = items;
   }
 
+
+  clear() {
+    this._container.innerHTML = "";
+  }
+ 
   renderItems() {
     this.clear();
     this._itemsArray.forEach((item) => {
