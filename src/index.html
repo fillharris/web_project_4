@@ -224,15 +224,23 @@
     <template id="card-template">
       <li class="card">
         <div class="card__image" style=""></div>
-        <button type="button" class="card__delete-button"></button>
+        <button type="button" class="card__delete-button">
+          <img
+            src="<%=require('./images/delete.svg')%>"
+            alt="trash"
+            class="card__delete-image"
+          />
+        </button>
         <div class="card__info">
           <h2 class="card__title"></h2>
-          <button
-            class="card__like-button"
-            aria-label="Like"
-            type="button"
-          ></button>
-          <p class="card__likes">0</p>
+          <button class="card__like-button" aria-label="Like" type="button">
+            <img
+              src="<%=require('./images/heart.svg')%>"
+              alt="like"
+              class="card__like-image"
+            />
+            <p class="card__likes">0</p>
+          </button>
         </div>
       </li>
     </template>

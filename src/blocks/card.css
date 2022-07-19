@@ -44,16 +44,18 @@
 }
 
 .card__like-button {
-  width: 21px;
-  height: 19px;
-  margin: 0;
-  padding: 0;
-  border: hidden;
-  background: url(../images/heart.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  transition: opacity 0.1s ease-out;
-  cursor: pointer;
+  margin: auto 18px auto 0px;
+  padding: 0px;
+  content: url("../images/heart.svg");
+  border: none;
+  background: transparent;
+}
+
+.card__like_active {
+  content: url("../images/filled-heart.svg");
+}
+
+.card__like-image {
 }
 
 .card__likes {
@@ -68,25 +70,27 @@
 }
 
 .card__delete-button {
-  width: 21px;
-  height: 19px;
-  margin: 0;
-  padding: 0;
-  border: hidden;
-  background: url(../images/delete.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  transition: opacity 0.1s ease-out;
-  cursor: pointer;
   position: absolute;
-  top: 18px;
-  right: 15px;
+  margin: 18px 0px 0px 249px;
+  padding: 0px;
+  z-index: 1;
+  border: none;
+  background: transparent;
+}
+
+.card__delete-button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.card__delete-image {
 }
 
 .card__like-button:hover {
   opacity: 0.5;
+  cursor: pointer;
 }
 
 .card__active-button {
-  background: url(../images/filled-heart.svg);
+  background: url("../images/filled-heart.svg");
 }
