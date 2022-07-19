@@ -7,8 +7,7 @@ class Api {
   }
 
   getInitialCards() {
-    const url = this._baseUrl + "/cards";
-    return fetch(url, {
+    return fetch(this._baseUrl + "/cards", {
       headers: this._headers,
     }).then((res) => {
       if (res.ok) {
@@ -19,8 +18,7 @@ class Api {
   }
 
   getUserInfo() {
-    const url = this._baseUrl + "/users/me";
-    return fetch(url, {
+    return fetch(this._baseUrl + "/users/me", {
       headers: this._headers,
     }).then((res) => {
       if (res.ok) {
@@ -31,8 +29,7 @@ class Api {
   }
 
   patchUserAvatar(info) {
-    const url = this._baseUrl + "/users/me/avatar";
-    return fetch(url, {
+    return fetch(this._baseUrl + "/users/me/avatar", {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify(info),
@@ -40,8 +37,7 @@ class Api {
   }
 
   patchUserInfo(info) {
-    const url = this._baseUrl + "/users/me";
-    return fetch(url, {
+    return fetch(this._baseUrl + "/users/me", {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify(info),
@@ -49,16 +45,14 @@ class Api {
   }
 
   deleteCard(id) {
-    const url = this._baseUrl + "/cards/" + id;
-    return fetch(url, {
+    return fetch(this._baseUrl + "/cards/" + id, {
       method: "DELETE",
       headers: this._headers,
     });
   }
 
   uploadCard(info) {
-    const url = this._baseUrl + "/cards";
-    return fetch(url, {
+    return fetch(this._baseUrl + "/cards", {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify(info),
@@ -71,8 +65,7 @@ class Api {
   }
 
   likeCard(id) {
-    const url = this._baseUrl + "/cards/likes/" + id;
-    return fetch(url, {
+    return fetch(this._baseUrl + "/cards/likes/" + id, {
       method: "PUT",
       headers: this._headers,
     }).then((res) => {
@@ -84,8 +77,7 @@ class Api {
   }
 
   unLikeCard(id) {
-    const url = this._baseUrl + "/cards/likes/" + id;
-    return fetch(url, {
+    return fetch(this._baseUrl + "/cards/likes/" + id, {
       method: "DELETE",
       headers: this._headers,
     }).then((res) => {
