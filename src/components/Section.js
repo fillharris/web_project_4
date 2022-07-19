@@ -1,5 +1,3 @@
-
-
 class Section {
   constructor({ items, renderer }, containerSelector) {
     this._itemsArray = items;
@@ -11,11 +9,10 @@ class Section {
     this._itemsArray = items;
   }
 
-
   clear() {
     this._container.innerHTML = "";
   }
- 
+
   renderItems() {
     this.clear();
     this._itemsArray.forEach((item) => {

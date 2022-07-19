@@ -18,10 +18,10 @@
 }
 
 .popup__form {
-position: relative;
+  position: relative;
 }
 
-.popup__avatar-container{
+.popup__avatar-container {
   background: #ffffff;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
@@ -33,7 +33,7 @@ position: relative;
   height: 272px;
 }
 
-.popup__delete-container{
+.popup__delete-container {
   background: #ffffff;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
@@ -112,7 +112,7 @@ position: relative;
 .popup__input:focus:invalid {
   border-bottom: 1px solid #ff0000;
   outline: none;
-} 
+}
 
 .popup__error {
   visibility: hidden;
@@ -161,9 +161,8 @@ position: relative;
   width: 100%;
   height: 50.15px;
   border-radius: 2px;
-  cursor:not-allowed;
+  cursor: not-allowed;
   pointer-events: none;
-  
 }
 
 .popup__save-button:hover {
@@ -181,7 +180,6 @@ position: relative;
   max-width: 540px;
   position: relative;
 }
-
 
 .popup__preview-name {
   font-size: 12px;
@@ -207,9 +205,8 @@ position: relative;
   max-width: 75vw;
   max-height: 75vh;
   padding: 0%;
-  width:auto;
+  width: auto;
 }
-
 
 @media screen and (max-width: 660px) {
   .popup__content-close_preview {
@@ -223,9 +220,9 @@ position: relative;
 @media screen and (max-width: 320px) {
   .popup__close-button {
     top: -40px;
-  right: 0px;
-  width: 20px;
-  height: 20px;
+    right: 0px;
+    width: 20px;
+    height: 20px;
   }
 
   .popup__container {
@@ -234,7 +231,7 @@ position: relative;
 
   .popup__title {
     font-size: 18px;
-    margin:0;
+    margin: 0;
     padding-bottom: 45px;
   }
 
@@ -247,4 +244,3 @@ position: relative;
     font-size: 14px;
   }
 }
-

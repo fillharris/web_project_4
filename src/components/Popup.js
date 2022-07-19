@@ -8,7 +8,7 @@ class Popup {
     this._popup.classList.add(
       "popup_open"
     ); /*activate a class that makes it visible*/
-    
+
     document.addEventListener("keydown", this._handleEscClose); //close on esc
   }
 
@@ -19,14 +19,14 @@ class Popup {
     document.removeEventListener("keydown", this._handleEscClose);
   }
 
-  _handleEscClose = (evt) =>{
+  _handleEscClose = (evt) => {
     //this is an arrow function
     //that way, we do not have to create an arrow function when setting the event listener
     //also because we do not create a new arrow function when setting event listener, we can remove this event listener
     if (evt.key === "Escape") {
       this.close();
     }
-  }
+  };
 
   setEventListeners() {
     //close when X is clicked
@@ -43,4 +43,4 @@ class Popup {
   }
 }
 
-export default Popup;;
+export default Popup;

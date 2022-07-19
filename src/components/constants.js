@@ -25,13 +25,12 @@ export const initialCards = [
   },
 ];
 
- export const customSettings = {
+export const customSettings = {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
   submitButtonSelector: ".popup__button",
   inactiveButtonClass: "popup__save-button_disabled",
   inputErrorClass: "popup__error",
   errorClass: "popup__error_visible",
-  profileImageSelector: ".profile__avatar"
-}
-
+  profileImageSelector: ".profile__avatar",
+};

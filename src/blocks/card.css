@@ -56,6 +56,16 @@
   cursor: pointer;
 }
 
+.card__likes {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  text-align: center;
+}
 
 .card__delete-button {
   width: 21px;
@@ -80,7 +90,3 @@
 .card__active-button {
   background: url(../images/filled-heart.svg);
 }
-
-
-
-
