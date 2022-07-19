@@ -78,21 +78,6 @@ const user = new UserInfo({
 //   cardContainer.addItem(newCard);
 // }
 
-function handleCardClick(name, imageUrl) {
-  imagePopupObject.open(name, imageUrl);
-}
-
-function handleLikeClick(card, cardId, isLiked) {
-  api
-    .updateLikes(cardId, isLiked)
-    .then((data) => {
-      card._likes = data.likes;
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-}
-
 const cardGridObject = new Section(
   {
     items: null,
