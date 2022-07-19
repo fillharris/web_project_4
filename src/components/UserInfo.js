@@ -8,19 +8,26 @@ class UserInfo {
       this.userJobElement = document.querySelector(userJob);
       this.userAvatarElement = document.querySelector(userAvatar);
     }
-    setUserInfo({ newName, newJob, newAvatar }) {
-      this.userNameElement.textContent = newName;
-      this.userJobElement.textContent = newJob;
-      this.userAvatarElement.src = newAvatar;
+    setUserInfo({ name, about, avatar, _id }) {
+      this.userNameElement.textContent = name;
+      this.userJobElement.textContent = about;
+      this.userAvatarElement.src = avatar;
+      this.id = _id; 
     }
-    getUserInfo() {
-      const newObject = {
-        username: this.userNameElement.textContent,
-        userinfo: this.userJobElement.textContent,
-        userAvatar: this.userAvatarElement.src,
-      };
-      return newObject;
+
+    setUserInfoTextOnly({ name, about }) {
+      this.userNameElement.textContent = name;
+      this.userJobElement.textContent = about;
     }
+
+   getUserInfo() {
+    const newObject = {
+      name: this.userNameElement.textContent,
+      about: this.userJobElement.textContent,
+      id: this.id,
+    };
+    return newObject;
+  }
     }
   
   export { UserInfo };;
