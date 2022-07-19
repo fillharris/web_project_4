@@ -1,6 +1,6 @@
 <div align="center"><img src="./src/images/favicon.ico"></div>
 
-<h1 align="center">Around South Carolina</h1>
+<h1 align="center">Around The U.S.</h1>
   
 ### Overview
 
@@ -18,5 +18,5 @@ This is the fourth project of the Software Engineer bootcamp from Practicum by Y
 
 ### Live Project
 
-:airplane: [Around South Carolina](https://fillharris.github.io/web_project_4/)
+:airplane: [Around The U.S.](https://fillharris.github.io/web_project_4/)
 
