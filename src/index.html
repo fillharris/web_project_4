@@ -29,30 +29,30 @@
         <div class="profile__image">
           <img
             class="profile__avatar"
-            src="<%=require('../src/images/profile.png')%>"
-            alt="profile portrait image"
+            src="<%=require('./images/Avatar.jpg')%>"
+            alt="Avatar"
           />
           <button class="profile__icon" id="profile__avatar-button"></button>
         </div>
-        <div class="profile__container">
-          <div class="profile__info">
-            <h1 class="profile__name">Phil Harris</h1>
-            <button
-              class="profile__edit-button"
-              id="profile__edit-button"
-              aria-label="Edit"
-              type="button"
-            ></button>
+        <div class="profile__info">
+          <h1 class="profile__info-name">Jacques Cousteau</h1>
+          <button
+            type="button"
+            class="profile__info-edit-button"
+            id="profile__edit-button"
+          >
+            <img src="<%=require('./images/edit.svg')%>" alt="Edit" />
+          </button>
 
-            <p class="profile__title">Keyboard Explorer</p>
-          </div>
+          <p class="profile__info-title">Explorer</p>
         </div>
         <button
+          type="button"
           class="profile__add-button"
           id="profile__add-button"
-          aria-label="Add"
-          type="button"
-        ></button>
+        >
+          <img src="<%=require('./images/add.svg')%>" alt="Add" />
+        </button>
       </section>
 
       <!-- start photo-grid content -->

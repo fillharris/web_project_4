@@ -27,7 +27,7 @@ const addCardButton = document.querySelector("#profile__add-button");
 const addCardPopup = document.querySelector("#create-popup");
 const addCardForm = addCardPopup.querySelector(".popup__form");
 const editAvatarButton = document.querySelector("#profile__avatar-button");
-const avatarImg = document.querySelector(".profile__image");
+const avatarImg = document.querySelector(".profile__avatar");
 
 // Form data
 const nameText = document.querySelector(".profile__name");
@@ -63,9 +63,9 @@ const api = new Api({
 });
 
 const user = new UserInfo({
-  userName: ".profile__name",
-  userJob: ".profile__title",
-  userAvatar: ".profile__image",
+  userName: ".profile__info-name",
+  userJob: ".profile__info-title",
+  userAvatar: ".profile__avatar",
 });
 
 // function renderCard(cardContainer, data, cardPopupObject)

@@ -32,6 +32,6 @@ export const initialCards = [
   inactiveButtonClass: "popup__save-button_disabled",
   inputErrorClass: "popup__error",
   errorClass: "popup__error_visible",
-  profileImageSelector: ".profile__image"
+  profileImageSelector: ".profile__avatar"
 }
 
