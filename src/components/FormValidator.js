@@ -46,21 +46,29 @@ class FormValidator {
     });
   }
 
+  // _toggleButtonState(inputList, buttonElement) {
+  //   if (this._hasInvalidInput(inputList)) {
+  //     this._disableButton(buttonElement);
+  //   } else {
+  //     this._enableButton(buttonElement);
+  //   }
+  // }
+
   _toggleButtonState(inputList, buttonElement) {
     if (this._hasInvalidInput(inputList)) {
-      this._disableButton(buttonElement);
+      buttonElement.disabled = true;
     } else {
-      this._enableButton(buttonElement);
+      buttonElement.disabled = false;
     }
   }
 
-  _disableButton(buttonElement) {
-    buttonElement.classList.add(this.settings.inactiveButtonClass);
-  }
+  // _disableButton(buttonElement) {
+  //   buttonElement.classList.add(this.settings.inactiveButtonClass);
+  // }
 
-  _enableButton(buttonElement) {
-    buttonElement.classList.remove(this.settings.inactiveButtonClass);
-  }
+  // _enableButton(buttonElement) {
+  //   buttonElement.classList.remove(this.settings.inactiveButtonClass);
+  // }
 
   setButtonInactive() {
     const buttonElement = this.formElement.querySelector(
