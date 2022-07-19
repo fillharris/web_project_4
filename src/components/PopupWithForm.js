@@ -12,7 +12,7 @@ class PopupWithForm extends Popup {
   setLoadingText(isLoading) {
     console.log({ isLoading });
     if (isLoading === true) {
-      this._buttonText.textContent = "Loading...";
+      this._buttonText.textContent = "Saving...";
     } else {
       this._buttonText.textContent = this._originalText;
     }
