@@ -2,7 +2,7 @@ import "./index.css";
 //Import classes
 import { Api } from "../components/Api.js";
 
-import { FormValidator } from "../components/FormValidator.js";
+import FormValidator from "../components/FormValidator.js";
 
 import { Card } from "../components/Card.js";
 
@@ -170,11 +170,17 @@ function renderCard(cardContainer, data, cardPopupObject, deletePopupObject) {
 // const editAvatarFormObject = formValidatorObjectList.find(
 //   (obj) => obj.formElement.getAttribute("name") == "avatarform"
 // );
-const addProfileFormValidator = new FormValidator(customSettings, editProfileForm);
+const addProfileFormValidator = new FormValidator(
+  customSettings,
+  editProfileForm
+);
 addProfileFormValidator.enableValidator();
 const addImageFormValidator = new FormValidator(customSettings, addCardForm);
 addImageFormValidator.enableValidator();
-const editAvatarFormValidator = new FormValidator(customSettings, editAvatarForm);
+const editAvatarFormValidator = new FormValidator(
+  customSettings,
+  editAvatarForm
+);
 editAvatarFormValidator.enableValidator();
 
 const editAvatarForm = new PopupWithForm("#avatar-popup", (values) => {
