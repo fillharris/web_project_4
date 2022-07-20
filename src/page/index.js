@@ -26,6 +26,8 @@ const editProfileForm = editProfileModal.querySelector(".popup__form");
 const addCardButton = document.querySelector("#profile__add-button");
 const addCardPopup = document.querySelector("#create-popup");
 const addCardForm = addCardPopup.querySelector(".popup__form");
+const editAvatarModal = document.querySelector("#avatar-popup");
+const editAvatarForm = editAvatarModal.querySelector(".popup__form");
 const editAvatarButton = document.querySelector("#profile__avatar-button");
 const avatarImg = document.querySelector(".profile__avatar");
 
@@ -183,7 +185,8 @@ const editAvatarFormValidator = new FormValidator(
 );
 editAvatarFormValidator.enableValidator();
 
-const editAvatarForm = new PopupWithForm("#avatar-popup", (values) => {
+const editAvatarFormPopup = new PopupWithForm("#avatar-popup", (values) => {
+  
   avatarImg.src = values.avatar;
   editAvatarFormValidator.setLoadingText(true);
   api
@@ -194,7 +197,7 @@ const editAvatarForm = new PopupWithForm("#avatar-popup", (values) => {
       console.log(err);
     });
 });
-editAvatarForm.setEventListeners();
+editAvatarFormPopup.setEventListeners();
 
 const addProfileForm = new PopupWithForm("#edit-popup", (values) => {
   user.setUserInfoTextOnly({ name: values.name, about: values.title });
