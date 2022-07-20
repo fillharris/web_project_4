@@ -42,7 +42,7 @@ class Card {
     );
     this._heart = this._element.querySelector(".card__like-image");
 
-    this._numLikesText = this._element.querySelector(".card__like-text");
+    this._numLikesText = this._element.querySelector(".card__likes");
 
     this._cardImage = this._element.querySelector(".card__image");
 
