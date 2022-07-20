@@ -149,61 +149,61 @@ function renderCard(cardContainer, data, cardPopupObject, deletePopupObject) {
   cardContainer.addItem(newCard);
 }
 
-const formElementsList = Array.from(
-  document.querySelectorAll(customSettings.formSelector)
-);
+// const formElementsList = Array.from(
+//   document.querySelectorAll(customSettings.formSelector)
+// );
 
-const formValidatorObjectList = formElementsList.map((form) => {
-  const formObject = new FormValidator(customSettings, form);
-  formObject.enableValidation();
-  return formObject;
+// const formValidatorObjectList = formElementsList.map((form) => {
+//   const formObject = new FormValidator(customSettings, form);
+//   formObject.enableValidation();
+//   return formObject;
+// });
+
+// const editProfileFormObject = formValidatorObjectList.find(
+//   (obj) => obj.formElement.getAttribute("name") == "nameanddescription"
+// );
+
+// const addCardFormObject = formValidatorObjectList.find(
+//   (obj) => obj.formElement.getAttribute("name") == "nameandlink"
+// );
+
+// const editAvatarFormObject = formValidatorObjectList.find(
+//   (obj) => obj.formElement.getAttribute("name") == "avatarform"
+// );
+const addProfileFormValidator = new FormValidator(settings, editProfileForm);
+addProfileFormValidator.enableValidator();
+const addImageFormValidator = new FormValidator(settings, addCardForm);
+addImageFormValidator.enableValidator();
+const editAvatarFormValidator = new FormValidator(settings, editAvatarForm);
+editAvatarFormValidator.enableValidator();
+
+const editAvatarForm = new PopupWithForm("#avatar-popup", (values) => {
+  avatarImg.src = values.avatar;
+  editAvatarFormValidator.setLoadingText(true);
+  api
+    .patchUserAvatar(values)
+    .then(editAvatarFormValidator.close())
+    .then(editAvatarFormValidator.setLoadingText(false))
+    .catch((err) => {
+      console.log(err);
+    });
 });
+editAvatarForm.setEventListeners();
 
-const editProfileFormObject = formValidatorObjectList.find(
-  (obj) => obj.formElement.getAttribute("name") == "nameanddescription"
-);
+const addProfileForm = new PopupWithForm("#edit-popup", (values) => {
+  user.setUserInfoTextOnly({ name: values.name, about: values.title });
+  addProfileForm.setLoadingText(true);
+  api
+    .patchUserInfo(user.getUserInfo())
+    .then(addProfileForm.close())
+    .then(addProfileForm.setLoadingText(false))
+    .catch((err) => {
+      console.log(err);
+    });
+});
+addProfileForm.setEventListeners();
 
-const addCardFormObject = formValidatorObjectList.find(
-  (obj) => obj.formElement.getAttribute("name") == "nameandlink"
-);
-
-const editAvatarFormObject = formValidatorObjectList.find(
-  (obj) => obj.formElement.getAttribute("name") == "avatarform"
-);
-
-const editAvatarFormPopupObject = new PopupWithForm(
-  "#avatar-popup",
-  (values) => {
-    avatarImg.src = values.avatar;
-    editAvatarFormPopupObject.setLoadingText(true);
-    api
-      .patchUserAvatar(values)
-      .then(editAvatarFormPopupObject.close())
-      .then(editAvatarFormPopupObject.setLoadingText(false))
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-);
-editAvatarFormPopupObject.setEventListeners();
-
-const editProfileFormPopupObject = new PopupWithForm(
-  "#edit-popup",
-  (values) => {
-    user.setUserInfoTextOnly({ name: values.name, about: values.title });
-    editProfileFormPopupObject.setLoadingText(true);
-    api
-      .patchUserInfo(user.getUserInfo())
-      .then(editProfileFormPopupObject.close())
-      .then(editProfileFormPopupObject.setLoadingText(false))
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-);
-editProfileFormPopupObject.setEventListeners();
-
-const addCardFormPopupObject = new PopupWithForm("#create-popup", () => {
+const addNewCardForm = new PopupWithForm("#create-popup", () => {
   const newCardInfo = {
     name: imageNameInput.value,
     link: imageLinkInput.value,
@@ -211,7 +211,7 @@ const addCardFormPopupObject = new PopupWithForm("#create-popup", () => {
     owner: user.getUserInfo(),
   };
 
-  addCardFormPopupObject.setLoadingText(true);
+  addCardForm.setLoadingText(true);
   api
     .uploadCard(newCardInfo)
     .then((data) => {
@@ -226,14 +226,14 @@ const addCardFormPopupObject = new PopupWithForm("#create-popup", () => {
     })
 
     .then(addCardForm.reset())
-    .then(addCardFormObject.setButtonInactive())
-    .then(addCardFormPopupObject.close())
-    .then(addCardFormPopupObject.setloadingText(false))
+    .then(addImageFormValidator.setButtonInactive())
+    .then(addNewCardForm.close())
+    .then(addNewCardForm.setloadingText(false))
     .catch((err) => {
       console.log(err);
     });
 });
-addCardFormPopupObject.setEventListeners();
+addNewCardForm.setEventListeners();
 
 const deleteCardFormPopupObject = new PopupWithConfirm(
   "#delete-popup",
@@ -250,23 +250,23 @@ const deleteCardFormPopupObject = new PopupWithConfirm(
 deleteCardFormPopupObject.setEventListeners();
 
 editAvatarButton.addEventListener("click", () => {
-  editAvatarFormPopupObject.open();
+  editAvatarForm.open();
 });
 
 addCardButton.addEventListener("click", () => {
-  addCardFormPopupObject.open();
+  addNewCardForm.open();
 });
 
 editProfileButton.addEventListener("click", () => {
   const userInput = user.getUserInfo();
   nameInput.value = userInput.username;
   titleInput.value = userInput.userinfo;
-  editProfileFormPopupObject.open();
+  editProfileForm.open();
 
   //user.getUserInfo();
 
   //nameInput.value = nameText.textContent;
   //titleInput.value = titleText.textContent;
 
-  editProfileFormObject.clearAllErrors();
+  editProfileForm.clearAllErrors();
 });
