@@ -183,7 +183,7 @@ const addAvatarFormValidator = new FormValidator(
   customSettings,
   editAvatarForm
 );
-editAvatarFormValidator.enableValidator();
+addAvatarFormValidator.enableValidator();
 
 const addAvatarForm = new PopupWithForm("#avatar-popup", (values) => {
   avatarImg.src = values.avatar;
