@@ -179,25 +179,24 @@ const addProfileFormValidator = new FormValidator(
 addProfileFormValidator.enableValidator();
 const addImageFormValidator = new FormValidator(customSettings, addCardForm);
 addImageFormValidator.enableValidator();
-const editAvatarFormValidator = new FormValidator(
+const addAvatarFormValidator = new FormValidator(
   customSettings,
   editAvatarForm
 );
 editAvatarFormValidator.enableValidator();
 
-const editAvatarFormPopup = new PopupWithForm("#avatar-popup", (values) => {
-  
+const addAvatarForm = new PopupWithForm("#avatar-popup", (values) => {
   avatarImg.src = values.avatar;
-  editAvatarFormValidator.setLoadingText(true);
+  addAvatarFormValidator.setLoadingText(true);
   api
     .patchUserAvatar(values)
-    .then(editAvatarFormValidator.close())
-    .then(editAvatarFormValidator.setLoadingText(false))
+    .then(addAvatarFormValidator.close())
+    .then(addAvatarFormValidator.setLoadingText(false))
     .catch((err) => {
       console.log(err);
     });
 });
-editAvatarFormPopup.setEventListeners();
+addAvatarForm.setEventListeners();
 
 const addProfileForm = new PopupWithForm("#edit-popup", (values) => {
   user.setUserInfoTextOnly({ name: values.name, about: values.title });
