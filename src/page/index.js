@@ -170,11 +170,11 @@ function renderCard(cardContainer, data, cardPopupObject, deletePopupObject) {
 // const editAvatarFormObject = formValidatorObjectList.find(
 //   (obj) => obj.formElement.getAttribute("name") == "avatarform"
 // );
-const addProfileFormValidator = new FormValidator(settings, editProfileForm);
+const addProfileFormValidator = new FormValidator(customSettings, editProfileForm);
 addProfileFormValidator.enableValidator();
-const addImageFormValidator = new FormValidator(settings, addCardForm);
+const addImageFormValidator = new FormValidator(customSettings, addCardForm);
 addImageFormValidator.enableValidator();
-const editAvatarFormValidator = new FormValidator(settings, editAvatarForm);
+const editAvatarFormValidator = new FormValidator(customSettings, editAvatarForm);
 editAvatarFormValidator.enableValidator();
 
 const editAvatarForm = new PopupWithForm("#avatar-popup", (values) => {
