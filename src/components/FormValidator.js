@@ -1,4 +1,4 @@
-import { customSettings } from "./constants.js";
+
 class FormValidator {
   constructor(settings, formEl) {
     this._settings = settings;
@@ -31,13 +31,12 @@ class FormValidator {
     inputList.some((inputEl) => !inputEl.validity.valid);
 
   _showInputError(inputEl) {
-    // change teh input style upon error
+
     inputEl.classList.add(this._settings.inputErrorClass);
     // error message content
-    const errorMessage = inputEl.validationMessage;
-    // access the input id which is something like popup-description
+  
     const inputId = inputEl.id;
-    // the id of the span slot is the template literal
+ 
     const errorEl = this._formEl.querySelector(`.${inputElement.id}-error`);
     errorEl.textContent = errorMessage;
     errorEl.classList.add(this._settings.errorClass);
@@ -56,10 +55,10 @@ class FormValidator {
     const buttonElement = this._formEl.querySelector(
       this._settings.submitButtonSelector
     );
-    // prevent all forms from refreshing the page upon submit
+   
     this._formEl.addEventListener("submit", (evt) => {
       evt.preventDefault();
-      // for all forms, we need to set event listeners
+     
     });
     this._setEventListeners(inputList, buttonElement);
   }
