@@ -271,10 +271,5 @@ editProfileButton.addEventListener("click", () => {
   titleInput.value = userInput.userinfo;
   addProfileForm.open();
 
-  //user.getUserInfo();
-
-  //nameInput.value = nameText.textContent;
-  //titleInput.value = titleText.textContent;
-
   addProfileForm.clearAllErrors();
 });
