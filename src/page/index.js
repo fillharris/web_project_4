@@ -258,7 +258,7 @@ const deleteCardFormPopupObject = new PopupWithConfirm(
 deleteCardFormPopupObject.setEventListeners();
 
 editAvatarButton.addEventListener("click", () => {
-  editAvatarForm.open();
+  addAvatarForm.open();
 });
 
 addCardButton.addEventListener("click", () => {
@@ -269,7 +269,7 @@ editProfileButton.addEventListener("click", () => {
   const userInput = user.getUserInfo();
   nameInput.value = userInput.username;
   titleInput.value = userInput.userinfo;
-  editProfileForm.open();
+  addProfileForm.open();
 
   //user.getUserInfo();
 
