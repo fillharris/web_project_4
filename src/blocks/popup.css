@@ -30,7 +30,7 @@
   max-width: 430px;
   width: 100%;
   position: relative;
-  height: 272px;
+  /* height: 272px; */
 }
 
 .popup__delete-container {
