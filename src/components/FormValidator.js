@@ -34,20 +34,20 @@ class FormValidator {
 
     const inputId = inputElement.id;
 
-    const errorEl = this._formElement.querySelector(
+    const errorElement = this._formElement.querySelector(
       `.${inputElement.id}-error`
     );
-    errorEl.textContent = errorMessage;
-    errorEl.classList.add(this._settings.errorClass);
+    errorElement.textContent = errorMessage;
+    errorElement.classList.add(this._settings.errorClass);
   }
   _hideInputError(inputElement) {
     inputElement.classList.remove(this._settings.inputErrorClass);
     const inputId = inputElement.id;
-    const errorEl = this._formElement.querySelector(
+    const errorElement = this._formElement.querySelector(
       `.${inputElement.id}-error`
     );
-    errorEl.textContent = "";
-    errorEl.classList.remove(this._settings.errorClass);
+    errorElement.textContent = "";
+    errorElement.classList.remove(this._settings.errorClass);
   }
   enableValidator() {
     const inputList = [
