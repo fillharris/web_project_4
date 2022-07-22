@@ -83,7 +83,7 @@
           novalidate
         >
           <button
-            class="button popup__save-button"
+            class="button disabled popup__save-button"
             type="submit"
             value="Save"
             aria-label="confirm-delete-card"
@@ -122,7 +122,7 @@
           <span class="popup__error" id="avatar-input-error"></span>
 
           <button
-            class="button popup__button popup__save-button"
+            class="button disabled popup__button popup__save-button"
             type="submit"
             value="Save"
             aria-label="submit-change-avatar"
@@ -164,7 +164,10 @@
             maxlength="200"
           />
           <span class="popup__error description-error"></span>
-          <button class="button popup__button popup__save-button" type="submit">
+          <button
+            class="button disabled popup__button popup__save-button"
+            type="submit"
+          >
             Save
           </button>
         </form>
@@ -200,7 +203,10 @@
             required
           />
           <span class="popup__error link-error"></span>
-          <button class="button popup__button popup__save-button" type="submit">
+          <button
+            class="button disabled popup__button popup__save-button"
+            type="submit"
+          >
             Save
           </button>
         </form>
