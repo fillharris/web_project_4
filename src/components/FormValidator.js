@@ -74,14 +74,6 @@ class FormValidator {
     });
     this._toggleButtonState(inputList, buttonElement);
   }
-
-  clearAllErrors() {
-    const inputList = Array.from(
-      this.formElement.querySelectorAll(customSettings.inputSelector)
-    );
-    inputList.forEach((inputElement) => {
-      this._hideInputError(inputElement);
-    });
-  }
 }
+
 export default FormValidator;

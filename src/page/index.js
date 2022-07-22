@@ -187,11 +187,11 @@ addAvatarFormValidator.enableValidator();
 
 const addAvatarForm = new PopupWithForm("#avatar-popup", (values) => {
   avatarImg.src = values.avatar;
-  addAvatarFormValidator.setLoadingText(true);
+  addAvatarForm.setLoadingText(true);
   api
     .patchUserAvatar(values)
     .then(addAvatarFormValidator.close())
-    .then(addAvatarFormValidator.setLoadingText(false))
+    .then(addAvatarForm.setLoadingText(false))
     .catch((err) => {
       console.log(err);
     });
@@ -219,7 +219,7 @@ const addNewCardForm = new PopupWithForm("#create-popup", () => {
     owner: user.getUserInfo(),
   };
 
-  addCardForm.setLoadingText(true);
+  addNewCardForm.setLoadingText(true);
   api
     .uploadCard(newCardInfo)
     .then((data) => {
@@ -271,5 +271,5 @@ editProfileButton.addEventListener("click", () => {
   titleInput.value = userInput.userinfo;
   addProfileForm.open();
 
-  addProfileFormValidator.clearAllErrors();
+  addProfileFormValidator.resetValidation();
 });
