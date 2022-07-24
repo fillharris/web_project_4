@@ -14,7 +14,7 @@ class Card {
     this._cardLink = data.link;
     this._likes = data.likes;
     this._owner = data.owner;
-    this._id = data.id;
+    this._id = data._id;
     this._currentUser = currentUser;
     this._cardTemplate = document
       .querySelector(templateSelector)
