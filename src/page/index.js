@@ -77,7 +77,7 @@ function renderCard(inputValues) {
   cardSection.addItem(cardEl);
 }
 
-const placePopup = new PopupWithForm(".create-popup", (inputValues) => {
+const placePopup = new PopupWithForm("#create-popup", (inputValues) => {
   placePopup.renderLoading(true, "Saving...");
   api
     .addNewCard(inputValues)
