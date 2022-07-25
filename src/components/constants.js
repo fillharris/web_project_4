@@ -1,10 +1,7 @@
 export const settings = {
   inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__save-button",
-  inactiveButtonClass: "popup__save-button_disabled",
-  // input line error style
+  submitButtonSelector: ".popup__button",
   inputErrorClass: "popup__input-type_error",
-  // error message class
   errorClass: "popup__error_visible",
 };
 export const cardsContainer = ".photo-grid__cards";
