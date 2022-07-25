@@ -41,7 +41,7 @@ import Api from "../components/Api";
 import PopupWithConfirm from "../components/PopupWithConfirm";
 
 // profile icons
-const editProfileIcon = document.querySelector(".profile__edit-button");
+const editProfileIcon = document.querySelector(".profile__info-edit-button");
 const addPictureIcon = document.querySelector(".profile__add-button");
 // author, add picture forms
 const editProfileForm = document.querySelector("#edit-popup");
