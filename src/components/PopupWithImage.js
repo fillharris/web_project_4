@@ -11,4 +11,4 @@ export default class PopupWithImage extends Popup {
     caption.textContent = image.alt;
     super.open();
   }
-};
+}

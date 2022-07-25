@@ -28,4 +28,4 @@ export default class PopupWithConfirm extends Popup {
       this._button.disabled = false;
     }
   }
-};
+}

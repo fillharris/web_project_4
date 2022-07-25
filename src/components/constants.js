@@ -9,4 +9,3 @@ export const settings = {
 };
 export const cardsContainer = ".photo-grid__cards";
 export const cardSelector = "#card-template";
-

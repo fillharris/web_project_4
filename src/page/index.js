@@ -1,7 +1,6 @@
 import "./index.css";
 // //Import classes
 
-
 // // Buttons and other DOM elements
 
 // const editProfileButton = document.querySelector("#profile__edit-button");
@@ -23,15 +22,16 @@ import "./index.css";
 // const imageNameInput = addCardForm.querySelector('[name="place-name"]');
 // const imageLinkInput = addCardForm.querySelector('[name="link"]');
 
-
 // //Token and ID info
 // //Token: b1411637-441a-4d25-9227-6de5bf8bcf24
 // //Group ID: group-12
 
-
-
 import Card from "../components/Card";
-import { cardsContainer, cardSelector, settings } from "../components/constants";
+import {
+  cardsContainer,
+  cardSelector,
+  settings,
+} from "../components/constants";
 import FormValidator from "../components/FormValidator";
 import Section from "../components/Section";
 import UserInfo from "../components/UserInfo";
