@@ -9,7 +9,7 @@ export default class PopupWithForm extends Popup {
     this._button = this._popup.querySelector(".popup__button");
     this._buttonOriginalText = this._button.textContent;
   }
-  // create and return an object from all the input boxes' answers
+  
   _getInputValues() {
     const inputList = [...this._popup.querySelectorAll(".popup__input")];
     const inputContent = {};
@@ -27,7 +27,6 @@ export default class PopupWithForm extends Popup {
   }
   _handleSubmitClick = () => {
     const inputValues = this._getInputValues();
-    //wait to be passed in in index.js
     this._handleFormSubmit(inputValues, this._button);
   };
   close() {
