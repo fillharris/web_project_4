@@ -104,7 +104,7 @@ function renderCard(inputValues) {
 }
 
 // add picture form submit
-const placePopup = new PopupWithForm(".popup_picture", (inputValues) => {
+const placePopup = new PopupWithForm(".create-popup", (inputValues) => {
   placePopup.renderLoading(true, "Saving...");
   api
     .addNewCard(inputValues)
@@ -120,12 +120,12 @@ const placePopup = new PopupWithForm(".popup_picture", (inputValues) => {
     });
 });
 
-const imagePopup = new PopupWithImage("#picture-popup");
+const imagePopup = new PopupWithImage("#preview-popup");
 function handleCardClick(image) {
   imagePopup.open(image);
 }
 
-const deleteCardConfirmation = new PopupWithConfirm(".popup_delete");
+const deleteCardConfirmation = new PopupWithConfirm(".delete-popup");
 
 // to interact with the Card class, open popup, then wait for delete to complete
 function handleTrashButton(card) {
@@ -163,11 +163,11 @@ function handleOpenProfileForm() {
   profilePopup.open();
 }
 const userInfo = new UserInfo({
-  nameSelector: ".profile__name",
-  jobSelector: ".profile__title",
-  avatarSelector: ".profile__pic",
+  nameSelector: ".profile__info-name",
+  jobSelector: ".profile__info-title",
+  avatarSelector: ".profile__avatar",
 });
-const profilePopup = new PopupWithForm("#popup", (inputValues, button) => {
+const profilePopup = new PopupWithForm("#edit-popup", (inputValues, button) => {
   profilePopup.renderLoading(true, "Saving...");
   api
     .editUserProfile(inputValues)
@@ -184,7 +184,7 @@ const profilePopup = new PopupWithForm("#popup", (inputValues, button) => {
 });
 
 const profilePicPopup = new PopupWithForm(
-  ".popup_profile-pic",
+  ".avatar-popup",
   (inputValues, button) => {
     profilePicPopup.renderLoading(true, "Saving...");
     api
