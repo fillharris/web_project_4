@@ -19,7 +19,7 @@ import PopupWithConfirm from "../components/PopupWithConfirm";
 const editProfileIcon = document.querySelector(".profile__info-edit-button");
 const addPictureIcon = document.querySelector(".profile__add-button");
 const editProfileForm = document.querySelector("#edit-popup");
-const addPictureForm = document.querySelector(".popup__preview-image");
+const addPictureForm = document.querySelector("#create-popup");
 const editProfilePicForm = document.querySelector(".avatar-popup");
 const formFieldAuthor = document.querySelector("#edit-profile-form");
 const formFieldPicture = document.querySelector("#create-place-form");
