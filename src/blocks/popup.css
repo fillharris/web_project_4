@@ -114,7 +114,7 @@
   outline: none;
 }
 
-.popup__error {
+.popup__input-type_error {
   visibility: hidden;
   font-family: "Inter", Arial, sans-serif;
   font-style: normal;
@@ -163,22 +163,6 @@
   border-radius: 2px;
   cursor: not-allowed;
   pointer-events: none;
-}
-
-.disabled {
-    display: block;
-    margin-top: 48px;
-    margin-bottom: 36.5px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    color: #ccc;
-    font-size: 18px;
-    line-height: 21.78px;
-    width: 100%;
-    height: 50.15px;
-    border-radius: 2px;
-    cursor: not-allowed;
-    pointer-events: none;
 }
 
 .popup__save-button:hover {

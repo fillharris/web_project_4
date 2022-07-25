@@ -1,46 +1,48 @@
-import Popup from "./Popup.js";
 
-class PopupWithForm extends Popup {
+
+import Popup from "./Popup";
+
+export default class PopupWithForm extends Popup {
   constructor(popupSelector, handleFormSubmit) {
     super(popupSelector);
     this._handleFormSubmit = handleFormSubmit;
-    this._form = this._popup.querySelector(".popup__form");
-    this._buttonText = this._form.querySelector(".popup__save-button");
-    this._originaTtext = this._buttonText.textContent;
+    this._formList = [...this._popup.querySelectorAll(".popup__form")];
+    this._formEl = this._popup.querySelector(".popup__form");
+    this._button = this._popup.querySelector(".popup__save-button");
+    this._buttonOriginalText = this._button.textContent;
   }
-
-  setLoadingText(isLoading) {
-    console.log({ isLoading });
-    if (isLoading === true) {
-      this._buttonText.textContent = "Saving...";
-    } else {
-      this._buttonText.textContent = this._originalText;
-    }
-  }
-
+  // create and return an object from all the input boxes' answers
   _getInputValues() {
-    const inputs = this._form.querySelectorAll("input");
-
-    const inputObj = {};
-    inputs.forEach((input) => {
-      inputObj[input.name] = input.value;
+    const inputList = [...this._popup.querySelectorAll(".popup__input")];
+    const inputContent = {};
+    inputList.forEach((inputEl) => {
+      inputContent[inputEl.name] = inputEl.value;
+    });
+    return inputContent;
+  }
+  _setEventListeners() {
+    this._formList.forEach((formEl) => {
+      formEl.addEventListener("submit", this._handleSubmitClick);
     });
 
-    return inputObj;
+    super._setEventListeners();
   }
-
-  setEventListeners() {
-    super.setEventListeners();
-    this._form.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-      this._handleFormSubmit(this._getInputValues());
-    });
-  }
-
+  _handleSubmitClick = () => {
+    const inputValues = this._getInputValues();
+    //wait to be passed in in index.js
+    this._handleFormSubmit(inputValues, this._button);
+  };
   close() {
     super.close();
-    this._form.reset();
+    this._formEl.removeEventListener("submit", this._handleSubmitClick);
+  }
+  renderLoading(isLoading, buttonText) {
+    if (isLoading) {
+      this._button.disabled = true;
+      this._button.textContent = buttonText;
+    } else {
+      this._button.textContent = this._buttonOriginalText;
+      this._button.disabled = false;
+    }
   }
 }
-
-export default PopupWithForm;

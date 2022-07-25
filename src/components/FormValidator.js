@@ -1,22 +1,22 @@
 class FormValidator {
-  constructor(settings, formElement) {
+  constructor(settings, formEl) {
     this._settings = settings;
-    this._formElement = formElement;
+    this._formEl = formEl;
   }
 
   _setEventListeners(inputList, buttonElement) {
-    inputList.forEach((inputElement) => {
-      inputElement.addEventListener("input", () => {
-        this._checkInputValidity(inputElement);
+    inputList.forEach((inputEl) => {
+      inputEl.addEventListener("input", () => {
+        this._checkInputValidity(inputEl);
         this._toggleButtonState(inputList, buttonElement);
       });
     });
   }
-  _checkInputValidity(inputElement) {
-    if (!inputElement.validity.valid) {
-      this._showInputError(inputElement);
+  _checkInputValidity(inputEl) {
+    if (!inputEl.validity.valid) {
+      this._showInputError(inputEl);
     } else {
-      this._hideInputError(inputElement);
+      this._hideInputError(inputEl);
     }
   }
   _toggleButtonState(inputList, buttonElement) {
@@ -27,55 +27,52 @@ class FormValidator {
     }
   }
   _hasInvalidInput = (inputList) =>
-    inputList.some((inputElement) => !inputElement.validity.valid);
+    inputList.some((inputEl) => !inputEl.validity.valid);
 
-  _showInputError(inputElement) {
-    inputElement.classList.add(this._settings.inputErrorClass);
-
-    const inputId = inputElement.id;
-
-    const errorMessage = inputElement.validationMessage;
-
-    const errorElement = this._formElement.querySelector(
-      `.${inputElement.id}-error`
-    );
-    errorElement.textContent = errorMessage;
-    errorElement.classList.add(this._settings.errorClass);
+  _showInputError(inputEl) {
+    // change teh input style upon error
+    inputEl.classList.add(this._settings.inputErrorClass);
+    // error message content
+    const errorMessage = inputEl.validationMessage;
+    // access the input id which is something like popup-description
+    const inputId = inputEl.id;
+    // the id of the span slot is the template literal
+    const errorEl = this._formEl.querySelector(`#${inputId}-error`);
+    errorEl.textContent = errorMessage;
+    errorEl.classList.add(this._settings.errorClass);
   }
-  _hideInputError(inputElement) {
-    inputElement.classList.remove(this._settings.inputErrorClass);
-    const inputId = inputElement.id;
-    const errorElement = this._formElement.querySelector(
-      `.${inputElement.id}-error`
-    );
-    errorElement.textContent = "";
-    errorElement.classList.remove(this._settings.errorClass);
+  _hideInputError(inputEl) {
+    inputEl.classList.remove(this._settings.inputErrorClass);
+    const inputId = inputEl.id;
+    const errorEl = this._formEl.querySelector(`#${inputId}-error`);
+    errorEl.textContent = "";
+    errorEl.classList.remove(this._settings.errorClass);
   }
   enableValidator() {
     const inputList = [
-      ...this._formElement.querySelectorAll(this._settings.inputSelector),
+      ...this._formEl.querySelectorAll(this._settings.inputSelector),
     ];
-    const buttonElement = this._formElement.querySelector(
+    const buttonElement = this._formEl.querySelector(
       this._settings.submitButtonSelector
     );
-
-    this._formElement.addEventListener("submit", (evt) => {
+    // prevent all forms from refreshing the page upon submit
+    this._formEl.addEventListener("submit", (evt) => {
       evt.preventDefault();
+      // for all forms, we need to set event listeners
     });
     this._setEventListeners(inputList, buttonElement);
   }
   resetValidation() {
     const inputList = [
-      ...this._formElement.querySelectorAll(this._settings.inputSelector),
+      ...this._formEl.querySelectorAll(this._settings.inputSelector),
     ];
-    const buttonElement = this._formElement.querySelector(
+    const buttonElement = this._formEl.querySelector(
       this._settings.submitButtonSelector
     );
-    inputList.forEach((inputElement) => {
-      this._hideInputError(inputElement);
+    inputList.forEach((inputEl) => {
+      this._hideInputError(inputEl);
     });
     this._toggleButtonState(inputList, buttonElement);
   }
 }
-
 export default FormValidator;

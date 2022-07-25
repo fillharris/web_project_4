@@ -1,29 +1,25 @@
-class UserInfo {
-  constructor({ userName, userJob, userAvatar }) {
-    this.userNameElement = document.querySelector(userName);
-    this.userJobElement = document.querySelector(userJob);
-    this.userAvatarElement = document.querySelector(userAvatar);
+export default class UserInfo {
+  constructor({ nameSelector, jobSelector, avatarSelector }) {
+    this._nameSlot = document.querySelector(nameSelector);
+    this._jobSlot = document.querySelector(jobSelector);
+    this._avatarSlot = document.querySelector(avatarSelector);
   }
-  setUserInfo({ name, about, avatar, _id }) {
-    this.userNameElement.textContent = name;
-    this.userJobElement.textContent = about;
-    this.userAvatarElement.src = avatar;
-    this.id = _id;
-  }
-
-  setUserInfoTextOnly({ name, about }) {
-    this.userNameElement.textContent = name;
-    this.userJobElement.textContent = about;
-  }
-
+  // to populate form fields after popup open
   getUserInfo() {
-    const newObject = {
-      name: this.userNameElement.textContent,
-      about: this.userJobElement.textContent,
-      id: this.id,
+    return {
+      name: this._nameSlot.textContent,
+      about: this._jobSlot.textContent,
+      avatar: this._avatarSlot.src,
     };
-    return newObject;
   }
-}
-
-export { UserInfo };
+  // upon form submission
+  setUserInfo(data) {
+    this._nameSlot.textContent = data.name;
+    this._jobSlot.textContent = data.about;
+    this._avatarSlot.alt = `${data.name}`;
+    this._avatarSlot.src = data.avatar;
+  }
+  setUserAvatar(data) {
+    this._avatarSlot.src = data.avatar;
+  }
+};

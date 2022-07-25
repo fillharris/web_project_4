@@ -1,29 +1,31 @@
 import Popup from "./Popup";
 
-class PopupWithConfirm extends Popup {
-  constructor(popupSelector, handleFormSubmit) {
+export default class PopupWithConfirm extends Popup {
+  constructor(popupSelector) {
     super(popupSelector);
+    this._button = this._popup.querySelector(".popup__save-button");
+    this._buttonOriginalText = this._button.textContent;
+  }
+
+  setSubmit(handleFormSubmit) {
     this._handleFormSubmit = handleFormSubmit;
-    this._form = this._popup.querySelector(".popup__form");
-
-    this._cardToDelete;
+    //wait to be passed in in index.js
   }
-
-  setCardToDelete(cardObj) {
-    this._cardToDelete = cardObj;
+  close() {
+    super.close();
+    this._button.removeEventListener("mouseup", this._handleFormSubmit);
   }
-
-  setEventListeners() {
-    super.setEventListeners();
-    this._form.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-      this._handleFormSubmit(this._cardToDelete);
-    });
-  }
-
   open() {
     super.open();
+    this._button.addEventListener("mouseup", this._handleFormSubmit);
   }
-}
-
-export default PopupWithConfirm;
+  renderLoading(isLoading, buttonText) {
+    if (isLoading) {
+      this._button.disabled = true;
+      this._button.textContent = buttonText;
+    } else {
+      this._button.textContent = this._buttonOriginalText;
+      this._button.disabled = false;
+    }
+  }
+};
