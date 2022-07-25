@@ -65,16 +65,11 @@
   background-image: url(../images/filled-heart.svg);
 }
 
-
-
 .card__likes {
-  margin: 0px;
-  padding: 0px;
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400;
+  color: black;
   font-size: 13px;
-  line-height: 16px;
+  line-height: 1;
+  margin: 3px 0 0 0;
   text-align: center;
 }
 

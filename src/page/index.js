@@ -1,31 +1,6 @@
 import "./index.css";
-// //Import classes
 
-// // Buttons and other DOM elements
-
-// const editProfileButton = document.querySelector("#profile__edit-button");
-// const editProfileModal = document.querySelector("#edit-popup");
-// const editProfileForm = editProfileModal.querySelector(".popup__form");
-// const addCardButton = document.querySelector("#profile__add-button");
-// const addCardPopup = document.querySelector("#create-popup");
-// const addCardForm = addCardPopup.querySelector(".popup__form");
-// const editAvatarModal = document.querySelector("#avatar-popup");
-// const editAvatarForm = editAvatarModal.querySelector(".popup__form");
-// const editAvatarButton = document.querySelector("#profile__avatar-button");
-// const avatarImg = document.querySelector(".profile__avatar");
-
-// // Form data
-// const nameText = document.querySelector(".profile__name");
-// const titleText = document.querySelector(".profile__title");
-// const nameInput = editProfileForm.querySelector('[name="name"]');
-// const titleInput = editProfileForm.querySelector('[name="description"]');
-// const imageNameInput = addCardForm.querySelector('[name="place-name"]');
-// const imageLinkInput = addCardForm.querySelector('[name="link"]');
-
-// //Token and ID info
-// //Token: b1411637-441a-4d25-9227-6de5bf8bcf24
-// //Group ID: group-12
-
+// Imported Classes
 import Card from "../components/Card";
 import {
   cardsContainer,
@@ -40,24 +15,24 @@ import PopupWithImage from "../components/PopupWithImage";
 import Api from "../components/Api";
 import PopupWithConfirm from "../components/PopupWithConfirm";
 
-// profile icons
+
 const editProfileIcon = document.querySelector(".profile__info-edit-button");
 const addPictureIcon = document.querySelector(".profile__add-button");
-// author, add picture forms
 const editProfileForm = document.querySelector("#edit-popup");
 const addPictureForm = document.querySelector(".popup__preview-image");
 const editProfilePicForm = document.querySelector(".avatar-popup");
-// form fields for the author form and the add picture form
 const formFieldAuthor = document.querySelector("#edit-profile-form");
 const formFieldPicture = document.querySelector("#create-place-form");
-// input fields for profile form popup
 const inputProfileName = document.querySelector("#profile-name");
 const inputProfileTitle = document.querySelector("#profile-title");
-// profile section on the page
 const profilePicInput = document.querySelector("#avatar-url");
 const editProfilePicIcon = document.querySelector(".profile__icon");
 
-// instantiate API class
+// //Token and ID info
+// //Token: b1411637-441a-4d25-9227-6de5bf8bcf24
+// //Group ID: group-12
+
+// API class
 const api = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/group-12",
   headers: {
@@ -66,7 +41,7 @@ const api = new Api({
   },
 });
 
-// handle Like Click function passed in as callback to Card.js
+
 function handleLikeClick(cardId, action, card) {
   if (action === "remove") {
     api
@@ -89,7 +64,6 @@ function handleLikeClick(cardId, action, card) {
   }
 }
 
-// add picture form functions
 function renderCard(inputValues) {
   const card = new Card(
     inputValues,
@@ -103,7 +77,6 @@ function renderCard(inputValues) {
   cardSection.addItem(cardEl);
 }
 
-// add picture form submit
 const placePopup = new PopupWithForm(".create-popup", (inputValues) => {
   placePopup.renderLoading(true, "Saving...");
   api
@@ -127,7 +100,6 @@ function handleCardClick(image) {
 
 const deleteCardConfirmation = new PopupWithConfirm(".delete-popup");
 
-// to interact with the Card class, open popup, then wait for delete to complete
 function handleTrashButton(card) {
   deleteCardConfirmation.setSubmit(() => {
     deleteCardConfirmation.renderLoading(true, "Saving...");
@@ -147,10 +119,8 @@ function handleTrashButton(card) {
   deleteCardConfirmation.open();
 }
 
-// initialize card Section class variable to take api call result and interact with Section.js
 let cardSection = null;
 
-// profile form functions
 function fillProfileForm() {
   const result = userInfo.getUserInfo();
   inputProfileName.value = result.name;
@@ -202,7 +172,6 @@ const profilePicPopup = new PopupWithForm(
   }
 );
 
-// validators
 const addProfileFormValidator = new FormValidator(settings, editProfileForm);
 addProfileFormValidator.enableValidator();
 const addPictureFormValidator = new FormValidator(settings, addPictureForm);
