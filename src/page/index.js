@@ -190,7 +190,7 @@ function handleOpenAddPictureForm() {
 }
 
 function handleOpenEditProfilePicForm() {
-  profilePicInput.value = userInfo.getUserInfo().avatar;
+  profilePicInput.value = userInfo.getUserAvatar().avatar;
   editProfilePicFormValidator.resetValidation();
   profilePicPopup.open();
 }
@@ -213,6 +213,7 @@ api
     cardSection.renderItems();
 
     userInfo.setUserInfo(user);
+    userInfo.setUserAvatar(user);
   })
   .catch((res) => {
     alert(res);

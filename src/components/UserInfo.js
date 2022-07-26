@@ -9,6 +9,11 @@ export default class UserInfo {
     return {
       name: this._nameSlot.textContent,
       about: this._jobSlot.textContent,
+    };
+  }
+
+  getUserAvatar() {
+    return {
       avatar: this._avatarSlot.src,
     };
   }
