@@ -183,7 +183,7 @@ const editProfilePicFormValidator = new FormValidator(
 editProfilePicFormValidator.enableValidator();
 
 function handleOpenAddPictureForm() {
-  formFieldPicture.reset();
+  // formFieldPicture.reset();
 
   addPictureFormValidator.resetValidation();
   placePopup.open();
