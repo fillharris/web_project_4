@@ -80,6 +80,16 @@
   padding: 0;
 }
 
+.popup__title-delete {
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 29.05px;
+  margin-top: 34px;
+  margin-bottom: 38px;
+  padding: 0;
+}
+
 .popup__close-button {
   position: absolute;
   top: -40px;
