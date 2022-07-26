@@ -47,7 +47,8 @@ class Card {
   }
   _setEventListeners() {
     this._heartButton.addEventListener("mouseup", () => {
-      if (this._heartButton.classList.contains("card__like_active")) {
+      // if (this._heartButton.classList.contains("card__like_active")) {
+      if (this._isLiked()) {
         this._handleLikeClick(this._cardId, "remove", this);
       } else {
         this._handleLikeClick(this._cardId, "add", this);
