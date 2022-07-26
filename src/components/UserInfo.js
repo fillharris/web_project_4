@@ -16,8 +16,8 @@ export default class UserInfo {
   setUserInfo(data) {
     this._nameSlot.textContent = data.name;
     this._jobSlot.textContent = data.about;
-    this._avatarSlot.alt = `${data.name}`;
-    this._avatarSlot.src = data.avatar;
+    // this._avatarSlot.alt = `${data.name}`;
+    // this._avatarSlot.src = data.avatar;
   }
   setUserAvatar(data) {
     this._avatarSlot.src = data.avatar;
