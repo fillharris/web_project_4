@@ -6,13 +6,13 @@ import {
   cardsContainer,
   cardSelector,
   settings,
-} from "../components/constants";
+} from "../utils/constants";
 import FormValidator from "../components/FormValidator";
 import Section from "../components/Section";
 import UserInfo from "../components/UserInfo";
 import PopupWithForm from "../components/PopupWithForm";
 import PopupWithImage from "../components/PopupWithImage";
-import Api from "../components/Api";
+import Api from "../utils/Api";
 import PopupWithConfirm from "../components/PopupWithConfirm";
 
 
