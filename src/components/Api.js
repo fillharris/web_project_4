@@ -6,7 +6,7 @@ export default class Api {
   initialize() {
     return Promise.all([this.getUserInfo(), this.getInitialCards()]);
   }
-  _handleFetchResponse(path, methodUsed = "GET", bodyContent) {
+  _handleFetchResponse(path, methodUsed = "GET", bodyContent = undefined) {
     return fetch(`${this._baseUrl}${path}`, {
       method: methodUsed,
       headers: this._headers,
