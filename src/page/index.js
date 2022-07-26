@@ -190,7 +190,7 @@ function handleOpenAddPictureForm() {
 }
 
 function handleOpenEditProfilePicForm() {
-  profilePicInput.value = userInfo.getUserAvatar().avatar;
+  profilePicInput.value = userInfo.getUserAvatar();
   editProfilePicFormValidator.resetValidation();
   profilePicPopup.open();
 }
