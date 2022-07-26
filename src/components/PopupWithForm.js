@@ -32,6 +32,7 @@ export default class PopupWithForm extends Popup {
   close() {
     super.close();
     this._formEl.removeEventListener("submit", this._handleSubmitClick);
+    this._formEl.reset();
   }
   renderLoading(isLoading, buttonText) {
     if (isLoading) {
