@@ -41,7 +41,7 @@
   background: #ffffff;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
-  padding: 0px 36px;
+  padding: 0px 36px 30px;
   box-sizing: border-box;
   max-width: 430px;
   width: 100%;
@@ -80,15 +80,6 @@
   padding: 0;
 }
 
-.popup__title-delete {
-  font-family: "Inter", Arial, sans-serif;
-  font-size: 24px;
-  font-weight: 900;
-  line-height: 29.05px;
-  margin-top: 34px;
-  margin-bottom: 38px;
-  padding: 0;
-}
 
 .popup__close-button {
   position: absolute;
