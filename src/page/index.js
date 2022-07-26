@@ -127,7 +127,7 @@ function fillProfileForm() {
   inputProfileTitle.value = result.about;
 }
 function handleOpenProfileForm() {
-  formFieldAuthor.reset();
+  // formFieldAuthor.reset();
   fillProfileForm();
   addProfileFormValidator.resetValidation();
   profilePopup.open();
